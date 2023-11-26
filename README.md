@@ -8,3 +8,6 @@ The game to be implemented in our project is going to be a recreation of the cla
 - Movement using the arrow keys;
 - "Game Over" conditions for when the player hits one of the edges of the grid or themselves;
 - A score system that also records the current High Score.
+
+## Graphics Mockup
+![Graphics Mockup](docs/image.png)
