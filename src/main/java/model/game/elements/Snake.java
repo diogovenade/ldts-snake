@@ -12,6 +12,8 @@ public class Snake extends Element {
     public Snake(int x, int y) {
         super(x, y);
         body.add(new Position(x, y));
+        body.add(new Position(x-1, y));
+        body.add(new Position(x-2, y));
         this.score = 0;
     }
 
@@ -26,4 +28,6 @@ public class Snake extends Element {
     public int getScore() {
         return this.score;
     }
+
+    public LinkedList<Position> getBody() {return this.body;}
 }

@@ -4,6 +4,8 @@ import model.Position;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.LinkedList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class SnakeTest {
@@ -39,5 +41,16 @@ public class SnakeTest {
         Position expectedHead = new Position(5, 10);
         assertEquals(expectedHead, snake.getSnakeHead());
         assertEquals(0, snake.getScore());
+    }
+    @Test
+    void testSnakeBody() {
+        LinkedList<Position> expectedBody = new LinkedList<>();
+        Position p1 = new Position(5, 10);
+        Position p2 = new Position(4, 10);
+        Position p3 = new Position(3, 10);
+        expectedBody.add(p1);
+        expectedBody.add(p2);
+        expectedBody.add(p3);
+        assertEquals(expectedBody, snake.getBody());
     }
 }
