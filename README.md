@@ -11,3 +11,6 @@ The game to be implemented in our project is going to be a recreation of the cla
 
 ## Graphics Mockup
 ![Graphics Mockup](docs/image.png)
+
+## UML Diagram
+![LDTS Project - UML drawio (1)](https://github.com/FEUP-LDTS-2023/project-l03gr05/assets/132618557/ebefb5a4-0f99-4b78-9127-dd9a98c1f4ed)
