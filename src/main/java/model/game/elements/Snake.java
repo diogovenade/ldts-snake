@@ -1,23 +1,14 @@
 package model.game.elements;
 
+import model.Direction;
 import model.Position;
 
 import java.util.LinkedList;
 
 public class Snake extends Element {
     private LinkedList<Position> body = new LinkedList<>();
-
     private int score;
-
-    private byte direction;
-    /*
-    1 = up
-    2 = right
-    -1 = down
-    -2 = left
-    */
-
-    //private Fruit fruit;
+    private Direction direction;
 
     public Snake(int x, int y) {
         super(x, y);
@@ -39,12 +30,9 @@ public class Snake extends Element {
         return this.score;
     }
 
-    public byte getDirection() {
-        return this.direction;
-    }
     public LinkedList<Position> getBody() {return this.body;}
 
-    public void move(){
+    /* public void move(){
         int x1 = getSnakeHead().getX();
         int y1 = getSnakeHead().getY();
         Position newpos = new Position(x1,y1);
@@ -54,5 +42,14 @@ public class Snake extends Element {
         else if (direction == -1) {newpos = newpos.getDown();}
         else throw new RuntimeException();
         body.add(newpos);
+    } */
+
+
+    public void setDirection(Direction direction) {
+        this.direction = direction;
+    }
+
+    public Direction getDirection() {
+        return this.direction;
     }
 }
