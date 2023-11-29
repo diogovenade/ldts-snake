@@ -5,10 +5,14 @@ import model.Position;
 
 import java.util.LinkedList;
 
+import static model.Direction.Right;
+
+
 public class Snake extends Element {
     private LinkedList<Position> body = new LinkedList<>();
     private int score;
     private Direction direction;
+    private int length;
 
     public Snake(int x, int y) {
         super(x, y);
@@ -16,6 +20,8 @@ public class Snake extends Element {
         body.add(new Position(x-1, y));
         body.add(new Position(x, y));
         this.score = 0;
+        this.direction = Right;
+        this.length = 3;
     }
 
     public Position getSnakeHead() {
@@ -32,24 +38,45 @@ public class Snake extends Element {
 
     public LinkedList<Position> getBody() {return this.body;}
 
-    /* public void move(){
-        int x1 = getSnakeHead().getX();
-        int y1 = getSnakeHead().getY();
-        Position newpos = new Position(x1,y1);
-        if (direction == 2) {newpos = newpos.getRight();}
-        else if (direction == -2) {newpos = newpos.getLeft();}
-        else if (direction == 1) {newpos = newpos.getUp();}
-        else if (direction == -1) {newpos = newpos.getDown();}
-        else throw new RuntimeException();
-        body.add(newpos);
-    } */
-
-
     public void setDirection(Direction direction) {
         this.direction = direction;
     }
 
     public Direction getDirection() {
         return this.direction;
+    }
+
+    public void move() {
+        Position newHead = calculateNewHead();
+        body.addLast(newHead);
+
+        if (length < body.size()) {
+            body.removeFirst();
+        }
+    }
+
+    private Position calculateNewHead() {
+        Position head = getSnakeHead();
+
+        switch (direction) {
+            case Up:
+                return head.getUp();
+            case Down:
+                return head.getDown();
+            case Left:
+                return head.getLeft();
+            case Right:
+                return head.getRight();
+            default:
+                throw new IllegalStateException("Unexpected value: " + direction);
+        }
+    }
+
+    public int getLength() {
+        return length;
+    }
+
+    public void setLength(int length) {
+        this.length = length;
     }
 }
