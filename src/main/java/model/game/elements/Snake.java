@@ -58,18 +58,13 @@ public class Snake extends Element {
     private Position calculateNewHead() {
         Position head = getSnakeHead();
 
-        switch (direction) {
-            case Up:
-                return head.getUp();
-            case Down:
-                return head.getDown();
-            case Left:
-                return head.getLeft();
-            case Right:
-                return head.getRight();
-            default:
-                throw new IllegalStateException("Unexpected value: " + direction);
-        }
+        return switch (direction) {
+            case Up -> head.getUp();
+            case Down -> head.getDown();
+            case Left -> head.getLeft();
+            case Right -> head.getRight();
+            default -> throw new IllegalStateException("Unexpected value: " + direction);
+        };
     }
 
     public int getLength() {
