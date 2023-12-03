@@ -48,6 +48,10 @@ public class MainMenu implements MenuModel {
         return ENTRIES.size();
     }
 
+    public String getSelectedEntry() {
+        return ENTRIES.get(selectedEntry);
+    }
+
     @Override
     public void setRunning(boolean running) {
         this.running = running;
