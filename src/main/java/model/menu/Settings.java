@@ -3,18 +3,15 @@ package model.menu;
 import java.util.Arrays;
 import java.util.List;
 
-public class Settings implements MenuModel {
-    private static final List<String> ENTRIES = Arrays.asList("SIZE", "SPEED", "BACK");
+public class Settings extends MenuModel {
     private static final List<String> SIZE_OPTIONS = Arrays.asList("SMALL", "MEDIUM", "LARGE");
     private static final List<String> SPEED_OPTIONS = Arrays.asList("SLOW", "MEDIUM", "FAST");
-
-    private int selectedEntry = 0;
-    private boolean running;
     private int sizeIndex = 1;
     private int speedIndex = 1;
 
     public Settings() {
-        this.running = true;
+        super();
+        entries = Arrays.asList("SIZE", "SPEED", "BACK");
     }
 
     public void nextSizeOption() {
@@ -49,22 +46,6 @@ public class Settings implements MenuModel {
         return SPEED_OPTIONS.get(speedIndex);
     }
 
-    public void nextEntry() {
-        selectedEntry++;
-        if (selectedEntry > ENTRIES.size() - 1)
-            selectedEntry = 0;
-    }
-
-    public void previousEntry() {
-        selectedEntry--;
-        if (selectedEntry < 0)
-            selectedEntry = ENTRIES.size() - 1;
-    }
-
-    public boolean isSelected(int i) {
-        return selectedEntry == i;
-    }
-
     public boolean isSelectedSize() {
         return isSelected(0);
     }
@@ -75,19 +56,5 @@ public class Settings implements MenuModel {
 
     public boolean isSelectedBack() {
         return isSelected(2);
-    }
-
-    public int getNumberEntries() {
-        return ENTRIES.size();
-    }
-
-    @Override
-    public void setRunning(boolean running) {
-        this.running = running;
-    }
-
-    @Override
-    public boolean isRunning() {
-        return running;
     }
 }
