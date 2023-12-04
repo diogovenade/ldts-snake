@@ -1,6 +1,8 @@
 package gui;
 
 import com.googlecode.lanterna.TerminalSize;
+import com.googlecode.lanterna.TextColor;
+import com.googlecode.lanterna.graphics.TextGraphics;
 import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.screen.Screen;
@@ -8,6 +10,7 @@ import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
+import model.Position;
 
 import java.awt.*;
 import java.io.File;
@@ -72,9 +75,33 @@ public class LanternaGUI {
         return Action.None;
     }
 
+    public void drawFilledSquare(int x, int y, int size, String color) {
+        TextGraphics tg = screen.newTextGraphics();
+        tg.setBackgroundColor(TextColor.Factory.fromString(color));
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                tg.putString(x + i, y + j, " ");
+            }
+        }
+    }
 
+    public void drawSnake(Position position) {
+        drawFilledSquare(position.getX(), position.getY(), 3, "#00FF00");
+    }
 
+    public void drawFruit(Position position) {
+        drawFilledSquare(position.getX(), position.getY(), 3, "#FF0000");
+    }
 
+    public void drawWall(Position position) {
+        drawFilledSquare(position.getX(), position.getY(), 1, "#0000FF");
+    }
+
+    public void drawText(int x, int y, String text, String color) {
+        TextGraphics tg = screen.newTextGraphics();
+        tg.setForegroundColor(TextColor.Factory.fromString(color));
+        tg.putString(x, y, text);
+    }
 
     public void clear() {
         screen.clear();
