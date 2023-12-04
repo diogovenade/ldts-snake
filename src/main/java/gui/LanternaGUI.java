@@ -1,6 +1,8 @@
 package gui;
 
 import com.googlecode.lanterna.TerminalSize;
+import com.googlecode.lanterna.input.KeyStroke;
+import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
@@ -51,6 +53,23 @@ public class LanternaGUI {
         Font loadedFont = font.deriveFont(Font.PLAIN, 30);
         AWTTerminalFontConfiguration fontConfig = AWTTerminalFontConfiguration.newInstance(loadedFont);
         return fontConfig;
+    }
+
+    public Action getNextAction() throws IOException {
+        KeyStroke keyStroke = screen.pollInput();
+        if (keyStroke == null) return Action.None;
+
+        if (keyStroke.getKeyType() == KeyType.EOF) return Action.Quit;
+        if (keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == 'q') return Action.Quit;
+
+        if (keyStroke.getKeyType() == KeyType.ArrowUp) return Action.Up;
+        if (keyStroke.getKeyType() == KeyType.ArrowRight) return Action.Right;
+        if (keyStroke.getKeyType() == KeyType.ArrowDown) return Action.Down;
+        if (keyStroke.getKeyType() == KeyType.ArrowLeft) return Action.Left;
+
+        if (keyStroke.getKeyType() == KeyType.Enter) return Action.Select;
+
+        return Action.None;
     }
 
 
