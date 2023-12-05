@@ -97,10 +97,10 @@ public class LanternaGUI {
         drawFilledSquare(position.getX(), position.getY(), 1, "#0000FF");
     }
 
-    public void drawText(int x, int y, String text, String color) {
+    public void drawText(Position position, String text, String color) {
         TextGraphics tg = screen.newTextGraphics();
         tg.setForegroundColor(TextColor.Factory.fromString(color));
-        tg.putString(x, y, text);
+        tg.putString(position.getX(), position.getY(), text);
     }
 
     public void clear() {
