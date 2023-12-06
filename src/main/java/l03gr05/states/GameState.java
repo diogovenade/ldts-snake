@@ -24,4 +24,12 @@ public class GameState extends State<Arena> {
     public int getSpeedIndex() {
         return speedIndex;
     }
+
+    public int getsizeIndex() {
+        if (getModel().getHeight() == 10 && getModel().getWidth() == 10)
+            return 0;
+        else if (getModel().getHeight() == 20 && getModel().getWidth() == 20)
+            return 1;
+        return 2;
+    }
 }
