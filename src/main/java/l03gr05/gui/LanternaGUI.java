@@ -92,11 +92,11 @@ public class LanternaGUI {
     }
 
     public void drawSnake(Position position) {
-        drawFilledSquare(position.getX(), position.getY(), 3, "#00FF00");
+        drawFilledSquare(position.getX(), position.getY(), 2, "#00FF00");
     }
 
     public void drawFruit(Position position) {
-        drawFilledSquare(position.getX(), position.getY(), 3, "#FF0000");
+        drawFilledSquare(position.getX(), position.getY(), 2, "#FF0000");
     }
 
     public void drawWall(Position position) {
