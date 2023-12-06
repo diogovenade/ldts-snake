@@ -5,6 +5,8 @@ import l03gr05.gui.Action;
 import l03gr05.model.Direction;
 import l03gr05.model.Position;
 import l03gr05.model.game.arena.Arena;
+import l03gr05.states.GameState;
+import l03gr05.states.State;
 
 public class SnakeController extends GameController {
     private boolean gameOver = false;
@@ -60,7 +62,11 @@ public class SnakeController extends GameController {
 
     @Override
     public void step(Game game, Action action, long time) {
-        if (time - lastMovement > 500 && !isGameOver()) {
+        State gameState = game.getState();
+        int speedIndex = ((GameState) gameState).getSpeedIndex();
+        long movementDuration = calculateMovementDuration(speedIndex);
+
+        if (time - lastMovement > movementDuration && !isGameOver()) {
             moveSnake();
             lastMovement = time;
         }
@@ -68,6 +74,19 @@ public class SnakeController extends GameController {
         if (action == Action.Right) moveSnakeRight();
         if (action == Action.Down) moveSnakeDown();
         if (action == Action.Left) moveSnakeLeft();
+    }
+
+    private long calculateMovementDuration(int speedIndex) {
+        switch (speedIndex) {
+            case 0:
+                return 800;
+            case 1:
+                return 500;
+            case 2:
+                return 300;
+            default:
+                return 500;
+        }
     }
 
     public boolean isGameOver() {
