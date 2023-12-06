@@ -5,6 +5,8 @@ import l03gr05.gui.Action;
 import l03gr05.model.game.arena.Arena;
 import l03gr05.model.menu.GameOver;
 import l03gr05.states.GameOverState;
+import l03gr05.states.GameState;
+import l03gr05.states.State;
 
 public class ArenaController extends GameController {
     private final SnakeController snakeController;
@@ -16,8 +18,12 @@ public class ArenaController extends GameController {
 
     @Override
     public void step(Game game, Action action, long time) {
-        if (action == Action.Quit || snakeController.isGameOver())
-            game.setState(new GameOverState(new GameOver(1, 1)));
+        if (action == Action.Quit || snakeController.isGameOver()) {
+            State gameState = game.getState();
+            int sizeIndex = ((GameState) gameState).getsizeIndex();
+            int speedIndex = ((GameState) gameState).getSpeedIndex();
+            game.setState(new GameOverState(new GameOver(sizeIndex, speedIndex)));
+        }
         else {
             snakeController.step(game, action, time);
         }
