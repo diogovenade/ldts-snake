@@ -5,7 +5,9 @@ import l03gr05.controller.Controller;
 import l03gr05.gui.Action;
 import l03gr05.model.game.arena.ClassicArenaBuilder;
 import l03gr05.model.menu.MainMenu;
+import l03gr05.model.menu.Settings;
 import l03gr05.states.GameState;
+import l03gr05.states.SettingsState;
 
 import java.io.IOException;
 
@@ -32,8 +34,12 @@ public class MainMenuController extends Controller<MainMenu> {
                     if (getModel().getSizeIndex() == 2)
                         game.setState(new GameState(new ClassicArenaBuilder(30, 30).createArena(), getModel().getSpeedIndex()));
                 }
-                else if (getModel().isSelectedExit()) {
+                if (getModel().isSelectedExit()) {
                     game.setState(null);
+                }
+
+                if (getModel().isSelectedSettings()) {
+                    game.setState(new SettingsState(new Settings(1, getModel().getSpeedIndex())));
                 }
 
         }
