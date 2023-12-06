@@ -4,14 +4,16 @@ import l03gr05.Game;
 import l03gr05.controller.Controller;
 import l03gr05.gui.Action;
 import l03gr05.model.game.arena.ClassicArenaBuilder;
+import l03gr05.model.menu.GameOver;
 import l03gr05.model.menu.MainMenu;
 import l03gr05.states.GameState;
+import l03gr05.states.MainMenuState;
 
 import java.io.IOException;
 
-public class MainMenuController extends Controller<MainMenu> {
-    public MainMenuController(MainMenu mainMenu) {
-        super(mainMenu);
+public class GameOverController extends Controller<GameOver> {
+    public GameOverController(GameOver gameOver) {
+        super(gameOver);
     }
 
     @Override
@@ -24,7 +26,9 @@ public class MainMenuController extends Controller<MainMenu> {
                 getModel().nextEntry();
                 break;
             case Select:
-                if (getModel().isSelectedStart()) {
+                if (getModel().isSelectedMain())
+                    game.setState(new MainMenuState(new MainMenu(1, 1)));
+                if (getModel().isSelectedRestart()) {
                     if (getModel().getSizeIndex() == 0)
                         game.setState(new GameState(new ClassicArenaBuilder(10, 10).createArena(), getModel().getSpeedIndex()));
                     if (getModel().getSizeIndex() == 1)
@@ -32,11 +36,7 @@ public class MainMenuController extends Controller<MainMenu> {
                     if (getModel().getSizeIndex() == 2)
                         game.setState(new GameState(new ClassicArenaBuilder(30, 30).createArena(), getModel().getSpeedIndex()));
                 }
-                else if (getModel().isSelectedExit()) {
-                    game.setState(null);
-                }
-
         }
-
     }
+
 }

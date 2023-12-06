@@ -7,8 +7,8 @@ import l03gr05.viewer.Viewer;
 import l03gr05.viewer.menu.MainMenuViewer;
 
 public class MainMenuState extends State<MainMenu> {
-    public MainMenuState(MainMenu model) {
-        super(model);
+    public MainMenuState(MainMenu mainMenu) {
+        super(mainMenu);
     }
 
     @Override

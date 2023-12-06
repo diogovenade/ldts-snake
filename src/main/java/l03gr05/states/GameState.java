@@ -7,8 +7,10 @@ import l03gr05.viewer.Viewer;
 import l03gr05.viewer.game.GameViewer;
 
 public class GameState extends State<Arena> {
-    public GameState(Arena arena) {
+    private int speedIndex;
+    public GameState(Arena arena, int speedIndex) {
         super(arena);
+        this.speedIndex = speedIndex;
     }
     @Override
     protected Controller<Arena> getController() {
@@ -17,5 +19,9 @@ public class GameState extends State<Arena> {
     @Override
     protected Viewer<Arena> getViewer() {
         return new GameViewer(getModel());
+    }
+
+    public int getSpeedIndex() {
+        return speedIndex;
     }
 }

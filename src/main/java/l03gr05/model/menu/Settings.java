@@ -6,12 +6,14 @@ import java.util.List;
 public class Settings extends MenuModel {
     private static final List<String> SIZE_OPTIONS = Arrays.asList("SMALL", "MEDIUM", "LARGE");
     private static final List<String> SPEED_OPTIONS = Arrays.asList("SLOW", "MEDIUM", "FAST");
-    private int sizeIndex = 0;
-    private int speedIndex = 0;
+    private int sizeIndex;
+    private int speedIndex;
 
-    public Settings() {
+    public Settings(int sizeIndex, int speedIndex) {
         super();
         entries = Arrays.asList("SIZE", "SPEED", "BACK");
+        this.sizeIndex = sizeIndex;
+        this.speedIndex = speedIndex;
     }
 
     public void nextSizeOption() {
@@ -78,5 +80,13 @@ public class Settings extends MenuModel {
     }
     public boolean isSelectedSpeedEntry(int i) {
         return speedIndex == i;
+    }
+
+    public int getSizeIndex() {
+        return sizeIndex;
+    }
+
+    public int getSpeedIndex() {
+        return speedIndex;
     }
 }
