@@ -1,6 +1,6 @@
 package viewer;
 
-import model.game.elements.Snake;
+import l03gr05.model.game.elements.Snake;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
