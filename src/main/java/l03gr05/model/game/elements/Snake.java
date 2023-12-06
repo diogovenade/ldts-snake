@@ -55,7 +55,7 @@ public class Snake extends Element {
         }
     }
 
-    private Position calculateNewHead() {
+    public Position calculateNewHead() {
         Position head = getSnakeHead();
 
         return switch (direction) {
@@ -73,5 +73,9 @@ public class Snake extends Element {
 
     public void setLength(int length) {
         this.length = length;
+    }
+
+    public void increaseLength() {
+        this.length++;
     }
 }

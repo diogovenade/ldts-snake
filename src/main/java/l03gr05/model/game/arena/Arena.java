@@ -67,4 +67,20 @@ public class Arena {
         }
         return false;
     }
+
+    public boolean isSnake(Position position) {
+        for (Position p : snake.getBody()) {
+            if (p == position) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void respawnFruit() {
+        do {
+            fruit.respawn(width, height);
+        } while (isWall(fruit.getPosition()) || isSnake(fruit.getPosition()));
+    }
 }
+
