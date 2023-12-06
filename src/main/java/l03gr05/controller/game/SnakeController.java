@@ -8,8 +8,10 @@ import l03gr05.model.game.arena.Arena;
 
 public class SnakeController extends GameController {
     private boolean gameOver = false;
+    private long lastMovement;
     public SnakeController(Arena arena) {
         super(arena);
+        this.lastMovement = 0;
     }
 
     private void moveSnake() {
@@ -58,6 +60,10 @@ public class SnakeController extends GameController {
 
     @Override
     public void step(Game game, Action action, long time) {
+        if (time - lastMovement > 500 && !isGameOver()) {
+            moveSnake();
+            lastMovement = time;
+        }
         if (action == Action.Up) moveSnakeUp();
         if (action == Action.Right) moveSnakeRight();
         if (action == Action.Down) moveSnakeDown();
