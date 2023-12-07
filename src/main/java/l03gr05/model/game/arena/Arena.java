@@ -70,7 +70,7 @@ public class Arena {
 
     public boolean isSnake(Position position) {
         for (Position p : snake.getBody()) {
-            if (p == position) {
+            if (p.equals(position)) {
                 return true;
             }
         }

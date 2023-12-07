@@ -18,18 +18,20 @@ public class SnakeController extends GameController {
 
     private void moveSnake() {
         Position nextPosition = getModel().getSnake().calculateNewHead();
+
+        // Check for self-collision
+        if (getModel().isSnake(nextPosition) || getModel().isWall(nextPosition)) {
+            gameOver = true;
+            return;
+        }
+
         if (getModel().isFruit(nextPosition)) {
             getModel().getSnake().increaseLength();
             getModel().getSnake().increaseScore();
             getModel().respawnFruit();
-            getModel().getSnake().move();
         }
-        else if (getModel().isSnake(nextPosition) || getModel().isWall(nextPosition)) {
-            gameOver = true;
-        }
-        else {
-            getModel().getSnake().move();
-        }
+
+        getModel().getSnake().move();
     }
 
     public void moveSnakeUp() {

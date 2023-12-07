@@ -99,7 +99,7 @@ public class LanternaGUI {
     }
 
     public void drawFruit(Position position) {
-        drawFilledSquare(position.getX(), position.getY(), 2, "#FF0000");
+        drawFilledSquare(position.getX(), position.getY(), 1, "#FF0000");
     }
 
     public void drawWall(Position position) {
