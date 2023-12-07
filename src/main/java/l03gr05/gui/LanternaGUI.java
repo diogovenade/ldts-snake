@@ -11,6 +11,7 @@ import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
 import l03gr05.model.Position;
+import l03gr05.model.game.elements.Snake;
 
 import java.awt.*;
 import java.io.File;
@@ -91,8 +92,10 @@ public class LanternaGUI {
         }
     }
 
-    public void drawSnake(Position position) {
-        drawFilledSquare(position.getX(), position.getY(), 2, "#00FF00");
+    public void drawSnake(Snake snake) {
+        for (Position segment : snake.getBody()) {
+            drawFilledSquare(segment.getX(), segment.getY(), 1, "#00FF00");
+        }
     }
 
     public void drawFruit(Position position) {
