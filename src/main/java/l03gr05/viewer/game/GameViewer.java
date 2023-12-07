@@ -19,7 +19,9 @@ public class GameViewer extends Viewer<Arena> {
         drawElement(gui, getModel().getFruit(), new FruitViewer());
         drawElements(gui, getModel().getWalls(), new WallViewer());
 
-        gui.drawText(new Position(5, 5), "Score: " + getModel().getSnake().getScore(), "#04EC0B");
+        int centerX = gui.getWidth() / 2;
+
+        gui.drawText(new Position(centerX - 4, 0), "Score: " + getModel().getSnake().getScore(), "#04EC0B");
     }
 
     private <T extends Element> void drawElements(LanternaGUI gui, List<T> elements, ElementViewer<T> viewer) {

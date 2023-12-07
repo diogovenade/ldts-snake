@@ -21,6 +21,7 @@ import java.net.URL;
 
 public class LanternaGUI {
     private final Screen screen;
+    int width, height;
 
     public LanternaGUI(Screen screen) {
         this.screen = screen;
@@ -30,6 +31,8 @@ public class LanternaGUI {
         AWTTerminalFontConfiguration fontConfig = loadSquareFont();
         Terminal terminal = createTerminal(width, height, fontConfig);
         this.screen = createScreen(terminal);
+        this.width = width;
+        this.height = height;
     }
 
     private Screen createScreen(Terminal terminal) throws IOException {
@@ -112,6 +115,13 @@ public class LanternaGUI {
         tg.putString(position.getX(), position.getY(), text);
     }
 
+    public int getWidth() {
+        return this.width;
+    }
+
+    public int getHeight() {
+        return this.height;
+    }
     public void clear() {
         screen.clear();
     }
