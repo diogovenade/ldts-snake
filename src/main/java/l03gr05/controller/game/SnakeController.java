@@ -19,7 +19,6 @@ public class SnakeController extends GameController {
     private void moveSnake() {
         Position nextPosition = getModel().getSnake().calculateNewHead();
 
-        // Check for self-collision
         if (getModel().isSnake(nextPosition) || getModel().isWall(nextPosition)) {
             gameOver = true;
             return;
@@ -35,28 +34,28 @@ public class SnakeController extends GameController {
     }
 
     public void moveSnakeUp() {
-        if (getModel().getSnake().getDirection() == Direction.Down)
+        if (getModel().getSnake().getDirection() == Direction.Down || getModel().getSnake().getDirection() == Direction.Up)
             return;
         getModel().getSnake().setDirection(Direction.Up);
         moveSnake();
     }
 
     public void moveSnakeDown() {
-        if (getModel().getSnake().getDirection() == Direction.Up)
+        if (getModel().getSnake().getDirection() == Direction.Up || getModel().getSnake().getDirection() == Direction.Down)
             return;
         getModel().getSnake().setDirection(Direction.Down);
         moveSnake();
     }
 
     public void moveSnakeLeft() {
-        if (getModel().getSnake().getDirection() == Direction.Right)
+        if (getModel().getSnake().getDirection() == Direction.Right || getModel().getSnake().getDirection() == Direction.Left)
             return;
         getModel().getSnake().setDirection(Direction.Left);
         moveSnake();
     }
 
     public void moveSnakeRight() {
-        if (getModel().getSnake().getDirection() == Direction.Left)
+        if (getModel().getSnake().getDirection() == Direction.Left || getModel().getSnake().getDirection() == Direction.Right)
             return;
         getModel().getSnake().setDirection(Direction.Right);
         moveSnake();
