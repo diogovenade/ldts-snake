@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Settings extends MenuModel {
+    private String size;
+    private String speed;
 
     public Settings() {
         super();
@@ -38,4 +40,19 @@ public class Settings extends MenuModel {
         return isSelected(6);
     }
 
+    public String getSize() {
+        return size;
+    }
+
+    public void setSize(String size) {
+        this.size = size;
+    }
+
+    public String getSpeed() {
+        return speed;
+    }
+
+    public void setSpeed(String speed) {
+        this.speed = speed;
+    }
 }

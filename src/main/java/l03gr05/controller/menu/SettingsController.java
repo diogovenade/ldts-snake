@@ -33,26 +33,32 @@ public class SettingsController extends Controller<Settings> {
 
                 if (getModel().isSelectedSmall()) {
                     state.setSizeIndex(0);
+                    getModel().setSize("SMALL");
                 }
 
                 if (getModel().isSelectedMedium()) {
                     state.setSizeIndex(1);
+                    getModel().setSize("MEDIUM");
                 }
 
                 if (getModel().isSelectedLarge()) {
                     state.setSizeIndex(2);
+                    getModel().setSize("LARGE");
                 }
 
                 if (getModel().isSelectedSlow()) {
                     state.setSpeedIndex(0);
+                    getModel().setSpeed("SLOW");
                 }
 
                 if (getModel().isSelectedMediumSpeed()) {
                     state.setSpeedIndex(1);
+                    getModel().setSpeed("MEDIUM");
                 }
 
                 if (getModel().isSelectedFast()) {
                     state.setSpeedIndex(2);
+                    getModel().setSpeed("FAST");
                 }
 
 

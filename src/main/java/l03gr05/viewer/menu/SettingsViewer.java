@@ -12,6 +12,8 @@ public class SettingsViewer extends Viewer<Settings> {
 
     @Override
     public void drawElements(LanternaGUI gui) {
+        gui.drawText(new Position(1,1), "SIZE: " + getModel().getSize(), "#FFFFFF");
+        gui.drawText(new Position(1,2), "SPEED: " + getModel().getSpeed(), "#FFFFFF");
         gui.drawText(new Position(5, 5), "SETTINGS", "#FFFFFF");
         gui.drawText(new Position(5, 7), "SIZE", "#FFFFFF");
         for (int i = 0; i < 3; i++) {
