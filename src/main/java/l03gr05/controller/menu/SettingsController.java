@@ -7,6 +7,7 @@ import l03gr05.model.menu.MainMenu;
 import l03gr05.model.menu.Settings;
 import l03gr05.states.MainMenuState;
 import l03gr05.states.SettingsState;
+import l03gr05.states.State;
 
 import java.io.IOException;
 
@@ -17,6 +18,7 @@ public class SettingsController extends Controller<Settings> {
 
     @Override
     public void step(Game game, Action action, long time) throws IOException {
+        State state = game.getState();
         switch(action) {
             case Up:
                 getModel().previousEntry();
@@ -26,42 +28,34 @@ public class SettingsController extends Controller<Settings> {
                 break;
             case Select:
                 if (getModel().isSelectedBack()) {
-                    game.setState(new MainMenuState(new MainMenu(getModel().getSizeIndex(), getModel().getSpeedIndex())));
+                    game.setState(new MainMenuState(new MainMenu()));
                 }
-                if (getModel().isSelectedSize()) {
-                    switch(action) {
-                        case Up:
-                            getModel().previousSizeOption();
-                            break;
-                        case Down:
-                            getModel().nextSizeOption();
-                            break;
-                        case Select:
-                            if (getModel().isSelectedSizeEntry(0))
-                                game.setState(new SettingsState(new Settings(0, getModel().getSpeedIndex())));
-                            if (getModel().isSelectedSizeEntry(1))
-                                game.setState(new SettingsState(new Settings(1, getModel().getSpeedIndex())));
-                            if (getModel().isSelectedSizeEntry(2))
-                                game.setState(new SettingsState(new Settings(2, getModel().getSpeedIndex())));
-                    }
+
+                if (getModel().isSelectedSmall()) {
+                    state.setSizeIndex(0);
                 }
-                if (getModel().isSelectedSpeed()) {
-                    switch(action) {
-                        case Up:
-                            getModel().previousSpeedOption();
-                            break;
-                        case Down:
-                            getModel().nextSpeedOption();
-                            break;
-                        case Select:
-                            if (getModel().isSelectedSpeedEntry(0))
-                                game.setState(new SettingsState(new Settings(getModel().getSizeIndex(), 0)));
-                            if (getModel().isSelectedSpeedEntry(1))
-                                game.setState(new SettingsState(new Settings(getModel().getSizeIndex(), 1)));
-                            if (getModel().isSelectedSpeedEntry(2))
-                                game.setState(new SettingsState(new Settings(getModel().getSizeIndex(), 2)));
-                    }
+
+                if (getModel().isSelectedMedium()) {
+                    state.setSizeIndex(1);
                 }
+
+                if (getModel().isSelectedLarge()) {
+                    state.setSizeIndex(2);
+                }
+
+                if (getModel().isSelectedSlow()) {
+                    state.setSpeedIndex(0);
+                }
+
+                if (getModel().isSelectedMediumSpeed()) {
+                    state.setSpeedIndex(1);
+                }
+
+                if (getModel().isSelectedFast()) {
+                    state.setSpeedIndex(2);
+                }
+
+
 
         }
     }

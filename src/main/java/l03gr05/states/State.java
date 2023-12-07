@@ -12,6 +12,8 @@ public abstract class State<T> {
     private final T model;
     private final Controller<T> controller;
     private final Viewer<T> viewer;
+    private int speedIndex = 1;
+    private int sizeIndex = 1;
 
     public State(T model) {
         this.model = model;
@@ -30,5 +32,21 @@ public abstract class State<T> {
         Action action = gui.getNextAction();
         controller.step(game, action, time);
         viewer.draw(gui);
+    }
+
+    public int getSpeedIndex() {
+        return speedIndex;
+    }
+
+    public void setSpeedIndex(int speedIndex) {
+        this.speedIndex = speedIndex;
+    }
+
+    public int getSizeIndex() {
+        return sizeIndex;
+    }
+
+    public void setSizeIndex(int sizeIndex) {
+        this.sizeIndex = sizeIndex;
     }
 }

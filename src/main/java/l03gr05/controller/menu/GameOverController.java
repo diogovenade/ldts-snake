@@ -8,6 +8,7 @@ import l03gr05.model.menu.GameOver;
 import l03gr05.model.menu.MainMenu;
 import l03gr05.states.GameState;
 import l03gr05.states.MainMenuState;
+import l03gr05.states.State;
 
 import java.io.IOException;
 
@@ -27,14 +28,9 @@ public class GameOverController extends Controller<GameOver> {
                 break;
             case Select:
                 if (getModel().isSelectedMain())
-                    game.setState(new MainMenuState(new MainMenu(1, 1)));
+                    game.setState(new MainMenuState(new MainMenu()));
                 if (getModel().isSelectedRestart()) {
-                    if (getModel().getSizeIndex() == 0)
-                        game.setState(new GameState(new ClassicArenaBuilder(10, 10).createArena(), getModel().getSpeedIndex()));
-                    if (getModel().getSizeIndex() == 1)
-                        game.setState(new GameState(new ClassicArenaBuilder(20, 20).createArena(), getModel().getSpeedIndex()));
-                    if (getModel().getSizeIndex() == 2)
-                        game.setState(new GameState(new ClassicArenaBuilder(30, 30).createArena(), getModel().getSpeedIndex()));
+                        game.setState(new GameState(new ClassicArenaBuilder(20, 20).createArena()));
                 }
         }
     }

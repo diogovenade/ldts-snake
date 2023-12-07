@@ -13,21 +13,21 @@ public class SettingsViewer extends Viewer<Settings> {
     @Override
     public void drawElements(LanternaGUI gui) {
         gui.drawText(new Position(5, 5), "SETTINGS", "#FFFFFF");
-        gui.drawText(new Position(5, 7), getModel().getEntry(0), getModel().isSelected(0) ? "#FFD700" : "#FFFFFF");
-        for (int i = 0; i < getModel().getNumberSizeEntries(); i++) {
+        gui.drawText(new Position(5, 7), "SIZE", "#FFFFFF");
+        for (int i = 0; i < 3; i++) {
             gui.drawText(new Position (6, 8 + i),
-                    getModel().getSizeEntry(i),
-                    getModel().isSelectedSizeEntry(i) ? "#FFD700" : "#FFFFFF");
+                    getModel().getEntry(i),
+                    getModel().isSelected(i) ? "#FFD700" : "#FFFFFF");
         }
 
-        gui.drawText(new Position (5, 12), getModel().getEntry(1), getModel().isSelected(1) ? "#FFD700" : "#FFFFFF");
-        for (int i = 0; i < getModel().getNumberSpeedEntries(); i++) {
-            gui.drawText(new Position(6, 13 + i),
-                    getModel().getSpeedEntry(i),
-                    getModel().isSelectedSpeedEntry(i) ? "#FFD700" : "#FFFFFF");
+        gui.drawText(new Position (5, 12), "SPEED", "#FFFFFF");
+        for (int i = 3; i < 6; i++) {
+            gui.drawText(new Position(6, 13 + i - 3),
+                    getModel().getEntry(i),
+                    getModel().isSelected(i) ? "#FFD700" : "#FFFFFF");
         }
 
-        gui.drawText(new Position(5, 17), "BACK", getModel().isSelected(2) ? "#FFD700" : "#FFFFFF");
+        gui.drawText(new Position(5, 19), getModel().getEntry(6), getModel().isSelected(6) ? "#FFD700" : "#FFFFFF");
     }
 
 }

@@ -7,10 +7,8 @@ import l03gr05.viewer.Viewer;
 import l03gr05.viewer.game.GameViewer;
 
 public class GameState extends State<Arena> {
-    private int speedIndex;
-    public GameState(Arena arena, int speedIndex) {
+    public GameState(Arena arena) {
         super(arena);
-        this.speedIndex = speedIndex;
     }
     @Override
     protected Controller<Arena> getController() {
@@ -19,17 +17,5 @@ public class GameState extends State<Arena> {
     @Override
     protected Viewer<Arena> getViewer() {
         return new GameViewer(getModel());
-    }
-
-    public int getSpeedIndex() {
-        return speedIndex;
-    }
-
-    public int getsizeIndex() {
-        if (getModel().getHeight() == 10 && getModel().getWidth() == 10)
-            return 0;
-        else if (getModel().getHeight() == 20 && getModel().getWidth() == 20)
-            return 1;
-        return 2;
     }
 }

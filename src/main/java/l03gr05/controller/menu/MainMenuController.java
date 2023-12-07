@@ -8,6 +8,7 @@ import l03gr05.model.menu.MainMenu;
 import l03gr05.model.menu.Settings;
 import l03gr05.states.GameState;
 import l03gr05.states.SettingsState;
+import l03gr05.states.State;
 
 import java.io.IOException;
 
@@ -18,6 +19,9 @@ public class MainMenuController extends Controller<MainMenu> {
 
     @Override
     public void step(Game game, Action action, long time) throws IOException {
+        State state = game.getState();
+        int speedIndex = state.getSpeedIndex();
+        int sizeIndex = state.getSizeIndex();
         switch(action) {
             case Up:
                 getModel().previousEntry();
@@ -27,19 +31,14 @@ public class MainMenuController extends Controller<MainMenu> {
                 break;
             case Select:
                 if (getModel().isSelectedStart()) {
-                    if (getModel().getSizeIndex() == 0)
-                        game.setState(new GameState(new ClassicArenaBuilder(10, 10).createArena(), getModel().getSpeedIndex()));
-                    if (getModel().getSizeIndex() == 1)
-                        game.setState(new GameState(new ClassicArenaBuilder(20, 20).createArena(), getModel().getSpeedIndex()));
-                    if (getModel().getSizeIndex() == 2)
-                        game.setState(new GameState(new ClassicArenaBuilder(30, 30).createArena(), getModel().getSpeedIndex()));
+                    game.setState(new GameState(new ClassicArenaBuilder(20, 20).createArena()));
                 }
                 if (getModel().isSelectedExit()) {
                     game.setState(null);
                 }
 
                 if (getModel().isSelectedSettings()) {
-                    game.setState(new SettingsState(new Settings(1, getModel().getSpeedIndex())));
+                    game.setState(new SettingsState(new Settings()));
                 }
 
         }
