@@ -2,6 +2,8 @@ package model;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import net.jqwik.api.ForAll;
+import net.jqwik.api.Property;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
@@ -49,6 +51,8 @@ public class PositionTest {
         Position downPosition = new Position(5, 11);
         assertEquals(downPosition, position.getDown());
     }
+
+
 
     @Test
     void testEquals() {

@@ -26,16 +26,17 @@ public class FruitTest {
     }
 
     @Test
-    public void testChangePositionValid() {
-        fruit.changePosition(7, 7);
-        Position expectedPosition = new Position(7, 7);
-        assertEquals(expectedPosition, fruit.getPosition());
+    public void testRespawnValid() {
+        fruit.respawn(4,4);
+        Position oldPosition = new Position(5, 5);
+
+        assertNotEquals(oldPosition, fruit.getPosition());
     }
 
     @Test
-    public void testChangePositionSnakeOverlap() {
+    public void testRespawnSnakeOverlap() {
         when(snakeMock.getPosition()).thenReturn(new Position(3, 3));
-        fruit.changePosition(3, 3);
+        fruit.respawn(3, 3);
         Position expectedPosition = new Position(5, 5);
         assertNotEquals(expectedPosition, fruit.getPosition());
     }
@@ -43,7 +44,7 @@ public class FruitTest {
     @Test
     public void testChangeToRandomPosition() {
         when(snakeMock.getPosition()).thenReturn(new Position(3, 3));
-        fruit.changeToRandomPosition();
+        fruit.respawn(2,2);
         verify(snakeMock, atLeastOnce()).getPosition();
         assertNotEquals(snakeMock.getPosition(), fruit.getPosition());
     }
