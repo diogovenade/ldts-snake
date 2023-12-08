@@ -22,6 +22,31 @@ public class MainMenuController extends Controller<MainMenu> {
         State state = game.getState();
         int speedIndex = state.getSpeedIndex();
         int sizeIndex = state.getSizeIndex();
+        String size = " ", speed = " ";
+        switch (speedIndex) {
+            case 0:
+                speed = "SLOW";
+                break;
+            case 1:
+                speed = "MEDIUM";
+                break;
+            case 2:
+                speed = "FAST";
+                break;
+        }
+        switch (sizeIndex) {
+            case 0:
+                size = "SMALL";
+                break;
+            case 1:
+                size = "MEDIUM";
+                break;
+            case 2:
+                size = "LARGE";
+                break;
+        }
+
+
         switch(action) {
             case Up:
                 getModel().previousEntry();
@@ -31,14 +56,23 @@ public class MainMenuController extends Controller<MainMenu> {
                 break;
             case Select:
                 if (getModel().isSelectedStart()) {
-                    game.setState(new GameState(new ClassicArenaBuilder(20, 20).createArena()));
+                    State gameState = new GameState(new ClassicArenaBuilder(20, 20).createArena());
+                    gameState.setSizeIndex(sizeIndex);
+                    gameState.setSpeedIndex(speedIndex);
+                    game.setState(gameState);
                 }
                 if (getModel().isSelectedExit()) {
                     game.setState(null);
                 }
 
                 if (getModel().isSelectedSettings()) {
-                    game.setState(new SettingsState(new Settings()));
+                    State newState = new SettingsState(new Settings());
+                    newState.setSizeIndex(sizeIndex);
+                    newState.setSpeedIndex(speedIndex);
+                    ((SettingsState) newState).getModel().setSize(size);
+                    ((SettingsState) newState).getModel().setSpeed(speed);
+
+                    game.setState(newState);
                 }
 
         }

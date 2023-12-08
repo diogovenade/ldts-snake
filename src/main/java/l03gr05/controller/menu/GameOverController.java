@@ -19,6 +19,9 @@ public class GameOverController extends Controller<GameOver> {
 
     @Override
     public void step(Game game, Action action, long time) throws IOException {
+        State state = game.getState();
+        int speedIndex = state.getSpeedIndex();
+        int sizeIndex = state.getSizeIndex();
         switch(action) {
             case Up:
                 getModel().previousEntry();
@@ -30,7 +33,10 @@ public class GameOverController extends Controller<GameOver> {
                 if (getModel().isSelectedMain())
                     game.setState(new MainMenuState(new MainMenu()));
                 if (getModel().isSelectedRestart()) {
-                        game.setState(new GameState(new ClassicArenaBuilder(20, 20).createArena()));
+                    State newState = new GameState(new ClassicArenaBuilder(20,20).createArena());
+                    newState.setSpeedIndex(speedIndex);
+                    newState.setSizeIndex(sizeIndex);
+                    game.setState(newState);
                 }
         }
     }

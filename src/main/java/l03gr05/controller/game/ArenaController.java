@@ -18,8 +18,14 @@ public class ArenaController extends GameController {
 
     @Override
     public void step(Game game, Action action, long time) {
+        State state = game.getState();
+        int speedIndex = state.getSpeedIndex();
+        int sizeIndex = state.getSizeIndex();
         if (action == Action.Quit || snakeController.isGameOver()) {
-            game.setState(new GameOverState(new GameOver()));
+            State newState = new GameOverState(new GameOver());
+            newState.setSizeIndex(sizeIndex);
+            newState.setSpeedIndex(speedIndex);
+            game.setState(newState);
         }
         else {
             snakeController.step(game, action, time);

@@ -19,6 +19,8 @@ public class SettingsController extends Controller<Settings> {
     @Override
     public void step(Game game, Action action, long time) throws IOException {
         State state = game.getState();
+        int speedIndex = state.getSpeedIndex();
+        int sizeIndex = state.getSizeIndex();
         switch(action) {
             case Up:
                 getModel().previousEntry();
@@ -28,7 +30,10 @@ public class SettingsController extends Controller<Settings> {
                 break;
             case Select:
                 if (getModel().isSelectedBack()) {
-                    game.setState(new MainMenuState(new MainMenu()));
+                    State newState = new MainMenuState(new MainMenu());
+                    newState.setSpeedIndex(speedIndex);
+                    newState.setSizeIndex(sizeIndex);
+                    game.setState(newState);
                 }
 
                 if (getModel().isSelectedSmall()) {
