@@ -87,8 +87,8 @@ public class Arena {
     public void addObstacle() {
         Wall newWall = new Wall(new Random().nextInt(width), new Random().nextInt(height));
 
-        boolean positionOccupied = walls.stream()
-                .anyMatch(wall -> wall.getPosition().equals(newWall.getPosition()));
+        boolean positionOccupied = walls.stream().anyMatch(wall -> wall.getPosition().equals(newWall.getPosition())) ||
+                snake.getBody().stream().anyMatch(segment -> segment.equals(newWall.getPosition()));
 
         if (!positionOccupied) {
             walls.add(newWall);
