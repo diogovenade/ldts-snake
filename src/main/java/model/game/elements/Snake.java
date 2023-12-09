@@ -5,7 +5,10 @@ import model.Position;
 
 import java.util.LinkedList;
 
+import static model.Direction.Down;
+import static model.Direction.Left;
 import static model.Direction.Right;
+import static model.Direction.Up;
 
 
 public class Snake extends Element {
@@ -58,13 +61,21 @@ public class Snake extends Element {
     private Position calculateNewHead() {
         Position head = getSnakeHead();
 
-        return switch (direction) {
-            case Up -> head.getUp();
-            case Down -> head.getDown();
-            case Left -> head.getLeft();
-            case Right -> head.getRight();
-            default -> throw new IllegalStateException("Unexpected value: " + direction);
-        };
+        if (direction==Up){
+            return head.getUp();
+        }
+        else if(direction==Down){
+            return head.getDown();
+        }
+        else if(direction==Left){
+            return head.getLeft();
+        }
+        else if(direction==Right){
+            return head.getRight();
+        }
+        else{
+            throw new IllegalStateException("Unexpected value: " + direction);
+        }
     }
 
     public int getLength() {

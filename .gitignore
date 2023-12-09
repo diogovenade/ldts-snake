@@ -1,4 +1,5 @@
 .gradle
 .idea
+bin
 build
 project-l03gr05.iml
