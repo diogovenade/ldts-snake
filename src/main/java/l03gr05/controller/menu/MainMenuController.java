@@ -22,7 +22,8 @@ public class MainMenuController extends Controller<MainMenu> {
         State state = game.getState();
         int speedIndex = state.getSpeedIndex();
         int sizeIndex = state.getSizeIndex();
-        String size = " ", speed = " ";
+        boolean obstacles = state.isObstacles();
+        String size = " ", speed = " ", obstaclesStr = " ";
         switch (speedIndex) {
             case 0:
                 speed = "SLOW";
@@ -46,6 +47,10 @@ public class MainMenuController extends Controller<MainMenu> {
                 break;
         }
 
+        if (obstacles) obstaclesStr = "YES";
+        else obstaclesStr = "NO";
+
+
 
         switch(action) {
             case Up:
@@ -59,6 +64,7 @@ public class MainMenuController extends Controller<MainMenu> {
                     State gameState = new GameState(new ClassicArenaBuilder(20, 20).createArena());
                     gameState.setSizeIndex(sizeIndex);
                     gameState.setSpeedIndex(speedIndex);
+                    gameState.setObstacles(obstacles);
                     game.setState(gameState);
                 }
                 if (getModel().isSelectedExit()) {
@@ -69,8 +75,11 @@ public class MainMenuController extends Controller<MainMenu> {
                     State newState = new SettingsState(new Settings());
                     newState.setSizeIndex(sizeIndex);
                     newState.setSpeedIndex(speedIndex);
+                    newState.setObstacles(obstacles);
+
                     ((SettingsState) newState).getModel().setSize(size);
                     ((SettingsState) newState).getModel().setSpeed(speed);
+                    ((SettingsState) newState).getModel().setObstacles(obstaclesStr);
 
                     game.setState(newState);
                 }

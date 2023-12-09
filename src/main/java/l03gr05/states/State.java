@@ -14,6 +14,7 @@ public abstract class State<T> {
     private final Viewer<T> viewer;
     private int speedIndex = 1;
     private int sizeIndex = 1;
+    private boolean obstacles = false;
 
     public State(T model) {
         this.model = model;
@@ -48,5 +49,13 @@ public abstract class State<T> {
 
     public void setSizeIndex(int sizeIndex) {
         this.sizeIndex = sizeIndex;
+    }
+
+    public boolean isObstacles() {
+        return obstacles;
+    }
+
+    public void setObstacles(boolean obstacles) {
+        this.obstacles = obstacles;
     }
 }

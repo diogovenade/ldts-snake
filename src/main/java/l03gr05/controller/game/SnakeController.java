@@ -16,7 +16,7 @@ public class SnakeController extends GameController {
         this.lastMovement = 0;
     }
 
-    private void moveSnake() {
+    private void moveSnake(boolean obstacles) {
         Position nextPosition = getModel().getSnake().calculateNewHead();
 
         if (getModel().isSnake(nextPosition) || getModel().isWall(nextPosition)) {
@@ -28,63 +28,66 @@ public class SnakeController extends GameController {
             getModel().getSnake().increaseLength();
             getModel().getSnake().increaseScore();
             getModel().respawnFruit();
+            if (obstacles)
+                getModel().addObstacle();
         }
 
         getModel().getSnake().move();
     }
 
-    public void moveSnakeUp() {
+    public void moveSnakeUp(boolean obstacles) {
         if (getModel().getSnake().getDirection() == Direction.Down || getModel().getSnake().getDirection() == Direction.Up)
             return;
         getModel().getSnake().setDirection(Direction.Up);
-        moveSnake();
+        moveSnake(obstacles);
     }
 
-    public void moveSnakeDown() {
+    public void moveSnakeDown(boolean obstacles) {
         if (getModel().getSnake().getDirection() == Direction.Up || getModel().getSnake().getDirection() == Direction.Down)
             return;
         getModel().getSnake().setDirection(Direction.Down);
-        moveSnake();
+        moveSnake(obstacles);
     }
 
-    public void moveSnakeLeft() {
+    public void moveSnakeLeft(boolean obstacles) {
         if (getModel().getSnake().getDirection() == Direction.Right || getModel().getSnake().getDirection() == Direction.Left)
             return;
         getModel().getSnake().setDirection(Direction.Left);
-        moveSnake();
+        moveSnake(obstacles);
     }
 
-    public void moveSnakeRight() {
+    public void moveSnakeRight(boolean obstacles) {
         if (getModel().getSnake().getDirection() == Direction.Left || getModel().getSnake().getDirection() == Direction.Right)
             return;
         getModel().getSnake().setDirection(Direction.Right);
-        moveSnake();
+        moveSnake(obstacles);
     }
 
     @Override
     public void step(Game game, Action action, long time) {
         State state = game.getState();
         int speedIndex = state.getSpeedIndex();
+        boolean obstacles = state.isObstacles();
         long movementDuration = calculateMovementDuration(speedIndex);
 
         if (time - lastMovement > movementDuration && !isGameOver()) {
-            moveSnake();
+            moveSnake(obstacles);
             lastMovement = time;
         }
-        if (action == Action.Up) moveSnakeUp();
-        if (action == Action.Right) moveSnakeRight();
-        if (action == Action.Down) moveSnakeDown();
-        if (action == Action.Left) moveSnakeLeft();
+        if (action == Action.Up) moveSnakeUp(obstacles);
+        if (action == Action.Right) moveSnakeRight(obstacles);
+        if (action == Action.Down) moveSnakeDown(obstacles);
+        if (action == Action.Left) moveSnakeLeft(obstacles);
     }
 
     private long calculateMovementDuration(int speedIndex) {
         switch (speedIndex) {
             case 0:
-                return 800;
-            case 1:
                 return 500;
-            case 2:
+            case 1:
                 return 300;
+            case 2:
+                return 100;
             default:
                 return 500;
         }

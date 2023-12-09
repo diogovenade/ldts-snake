@@ -6,10 +6,11 @@ import java.util.List;
 public class Settings extends MenuModel {
     private String size;
     private String speed;
+    private String obstacles;
 
     public Settings() {
         super();
-        entries = Arrays.asList("SMALL", "MEDIUM", "LARGE", "SLOW", "MEDIUM", "FAST", "BACK");
+        entries = Arrays.asList("SMALL", "MEDIUM", "LARGE", "SLOW", "MEDIUM", "FAST", "YES", "NO", "BACK");
     }
 
     public boolean isSelectedSmall() {
@@ -35,9 +36,16 @@ public class Settings extends MenuModel {
     public boolean isSelectedFast() {
         return isSelected(5);
     }
+    public boolean isSelectedYes() {
+        return isSelected(6);
+    }
+
+    public boolean isSelectedNo() {
+        return isSelected(7);
+    }
 
     public boolean isSelectedBack() {
-        return isSelected(6);
+        return isSelected(8);
     }
 
     public String getSize() {
@@ -54,5 +62,13 @@ public class Settings extends MenuModel {
 
     public void setSpeed(String speed) {
         this.speed = speed;
+    }
+
+    public String getObstacles() {
+        return obstacles;
+    }
+
+    public void setObstacles(String obstacles) {
+        this.obstacles = obstacles;
     }
 }

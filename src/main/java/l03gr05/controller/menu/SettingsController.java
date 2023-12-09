@@ -21,6 +21,8 @@ public class SettingsController extends Controller<Settings> {
         State state = game.getState();
         int speedIndex = state.getSpeedIndex();
         int sizeIndex = state.getSizeIndex();
+        boolean obstacles = state.isObstacles();
+
         switch(action) {
             case Up:
                 getModel().previousEntry();
@@ -33,6 +35,7 @@ public class SettingsController extends Controller<Settings> {
                     State newState = new MainMenuState(new MainMenu());
                     newState.setSpeedIndex(speedIndex);
                     newState.setSizeIndex(sizeIndex);
+                    newState.setObstacles(obstacles);
                     game.setState(newState);
                 }
 
@@ -66,8 +69,15 @@ public class SettingsController extends Controller<Settings> {
                     getModel().setSpeed("FAST");
                 }
 
+                if (getModel().isSelectedYes()) {
+                    state.setObstacles(true);
+                    getModel().setObstacles("YES");
+                }
 
-
+                if (getModel().isSelectedNo()) {
+                    state.setObstacles(false);
+                    getModel().setObstacles("NO");
+                }
         }
     }
 }

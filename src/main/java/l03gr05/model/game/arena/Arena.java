@@ -6,6 +6,7 @@ import l03gr05.model.game.elements.Fruit;
 import l03gr05.model.game.elements.Wall;
 
 import java.util.List;
+import java.util.Random;
 
 public class Arena {
     private Snake snake;
@@ -81,6 +82,17 @@ public class Arena {
         do {
             fruit.respawn(width, height);
         } while (isWall(fruit.getPosition()) || isSnake(fruit.getPosition()));
+    }
+
+    public void addObstacle() {
+        Wall newWall = new Wall(new Random().nextInt(width), new Random().nextInt(height));
+
+        boolean positionOccupied = walls.stream()
+                .anyMatch(wall -> wall.getPosition().equals(newWall.getPosition()));
+
+        if (!positionOccupied) {
+            walls.add(newWall);
+        }
     }
 }
 

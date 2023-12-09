@@ -22,6 +22,7 @@ public class GameOverController extends Controller<GameOver> {
         State state = game.getState();
         int speedIndex = state.getSpeedIndex();
         int sizeIndex = state.getSizeIndex();
+        boolean obstacles = state.isObstacles();
         switch(action) {
             case Up:
                 getModel().previousEntry();
@@ -36,6 +37,7 @@ public class GameOverController extends Controller<GameOver> {
                     State newState = new GameState(new ClassicArenaBuilder(20,20).createArena());
                     newState.setSpeedIndex(speedIndex);
                     newState.setSizeIndex(sizeIndex);
+                    newState.setObstacles(obstacles);
                     game.setState(newState);
                 }
         }
