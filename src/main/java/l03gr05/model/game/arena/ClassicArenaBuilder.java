@@ -40,10 +40,10 @@ public class ClassicArenaBuilder extends ArenaBuilder {
 
         for (int x = 0; x < width; x++) {
             walls.add(new Wall(x, 0));
-            walls.add(new Wall(x, height - 1));
+            walls.add(new Wall(x, height));
         }
 
-        for (int y = 1; y < height - 1; y++) {
+        for (int y = 1; y < height; y++) {
             walls.add(new Wall(0, y));
             walls.add(new Wall(width - 1, y));
         }
