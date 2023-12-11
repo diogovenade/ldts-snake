@@ -11,6 +11,7 @@ import l03gr05.states.State;
 public class SnakeController extends GameController {
     private boolean gameOver = false;
     private long lastMovement;
+    private Direction lastDirection = Direction.Right;
     public SnakeController(Arena arena) {
         super(arena);
         this.lastMovement = 0;
@@ -36,25 +37,25 @@ public class SnakeController extends GameController {
     }
 
     public void moveSnakeUp(boolean obstacles) {
-        if (getModel().getSnake().getDirection() == Direction.Down || getModel().getSnake().getDirection() == Direction.Up)
+        if (lastDirection == Direction.Down || lastDirection == Direction.Up)
             return;
         getModel().getSnake().setDirection(Direction.Up);;
     }
 
     public void moveSnakeDown(boolean obstacles) {
-        if (getModel().getSnake().getDirection() == Direction.Up || getModel().getSnake().getDirection() == Direction.Down)
+        if (lastDirection == Direction.Up || lastDirection == Direction.Down)
             return;
         getModel().getSnake().setDirection(Direction.Down);;
     }
 
     public void moveSnakeLeft(boolean obstacles) {
-        if (getModel().getSnake().getDirection() == Direction.Right || getModel().getSnake().getDirection() == Direction.Left)
+        if (lastDirection == Direction.Right || lastDirection == Direction.Left)
             return;
         getModel().getSnake().setDirection(Direction.Left);;
     }
 
     public void moveSnakeRight(boolean obstacles) {
-        if (getModel().getSnake().getDirection() == Direction.Left || getModel().getSnake().getDirection() == Direction.Right)
+        if (lastDirection == Direction.Left || lastDirection == Direction.Right)
             return;
         getModel().getSnake().setDirection(Direction.Right);
     }
@@ -66,26 +67,38 @@ public class SnakeController extends GameController {
         boolean obstacles = state.isObstacles();
         long movementDuration = calculateMovementDuration(speedIndex);
 
-        if (time - lastMovement > movementDuration && !isGameOver()) {
+            if (time - lastMovement > movementDuration && !isGameOver()) {
             moveSnake(obstacles);
             lastMovement = time;
         }
-        if (action == Action.Up) moveSnakeUp(obstacles);
-        if (action == Action.Right) moveSnakeRight(obstacles);
-        if (action == Action.Down) moveSnakeDown(obstacles);
-        if (action == Action.Left) moveSnakeLeft(obstacles);
+        if (action == Action.Up) {
+            moveSnakeUp(obstacles);
+            lastDirection = Direction.Up;
+        }
+        if (action == Action.Right) {
+            moveSnakeRight(obstacles);
+            lastDirection = Direction.Right;
+        }
+        if (action == Action.Down) {
+            moveSnakeDown(obstacles);
+            lastDirection = Direction.Down;
+        }
+        if (action == Action.Left) {
+            moveSnakeLeft(obstacles);
+            lastDirection = Direction.Left;
+        }
     }
 
     private long calculateMovementDuration(int speedIndex) {
         switch (speedIndex) {
             case 0:
-                return 500;
+                return 200;
             case 1:
-                return 300;
+                return 120;
             case 2:
-                return 100;
+                return 80;
             default:
-                return 500;
+                return 120;
         }
     }
 
@@ -96,4 +109,5 @@ public class SnakeController extends GameController {
     public void setGameOver(boolean gameOver) {
         this.gameOver = gameOver;
     }
+
 }
