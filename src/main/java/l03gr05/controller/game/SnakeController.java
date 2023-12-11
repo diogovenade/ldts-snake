@@ -97,6 +97,8 @@ public class SnakeController extends GameController {
                 return 120;
             case 2:
                 return 80;
+            case 3:
+                return 500;
             default:
                 return 120;
         }

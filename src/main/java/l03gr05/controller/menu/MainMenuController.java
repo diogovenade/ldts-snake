@@ -34,6 +34,9 @@ public class MainMenuController extends Controller<MainMenu> {
             case 2:
                 speed = "FAST";
                 break;
+            case 3:
+                speed = "TEST";
+                break;
         }
         switch (sizeIndex) {
             case 0:

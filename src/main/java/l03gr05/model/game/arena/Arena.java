@@ -70,11 +70,15 @@ public class Arena {
     }
 
     public boolean isSnake(Position position) {
-        for (Position p : snake.getBody()) {
+        List<Position> snakeBody = snake.getBody();
+        int bodySize = snakeBody.size();
+        for (int i = 1; i < bodySize; i++) {
+            Position p = snakeBody.get(i);
             if (p.equals(position)) {
                 return true;
             }
         }
+
         return false;
     }
 
