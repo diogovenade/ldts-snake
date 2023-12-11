@@ -32,7 +32,7 @@ public class LanternaGUI {
         Terminal terminal = createTerminal(width, height, fontConfig);
         this.screen = createScreen(terminal);
         this.width = width;
-        this.height = height;
+        this.height = height - 1;
     }
 
     private Screen createScreen(Terminal terminal) throws IOException {
@@ -41,7 +41,6 @@ public class LanternaGUI {
 
         screen.setCursorPosition(null);
         screen.startScreen();
-        screen.doResizeIfNecessary();
         return screen;
     }
 

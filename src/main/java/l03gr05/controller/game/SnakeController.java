@@ -38,29 +38,25 @@ public class SnakeController extends GameController {
     public void moveSnakeUp(boolean obstacles) {
         if (getModel().getSnake().getDirection() == Direction.Down || getModel().getSnake().getDirection() == Direction.Up)
             return;
-        getModel().getSnake().setDirection(Direction.Up);
-        moveSnake(obstacles);
+        getModel().getSnake().setDirection(Direction.Up);;
     }
 
     public void moveSnakeDown(boolean obstacles) {
         if (getModel().getSnake().getDirection() == Direction.Up || getModel().getSnake().getDirection() == Direction.Down)
             return;
-        getModel().getSnake().setDirection(Direction.Down);
-        moveSnake(obstacles);
+        getModel().getSnake().setDirection(Direction.Down);;
     }
 
     public void moveSnakeLeft(boolean obstacles) {
         if (getModel().getSnake().getDirection() == Direction.Right || getModel().getSnake().getDirection() == Direction.Left)
             return;
-        getModel().getSnake().setDirection(Direction.Left);
-        moveSnake(obstacles);
+        getModel().getSnake().setDirection(Direction.Left);;
     }
 
     public void moveSnakeRight(boolean obstacles) {
         if (getModel().getSnake().getDirection() == Direction.Left || getModel().getSnake().getDirection() == Direction.Right)
             return;
         getModel().getSnake().setDirection(Direction.Right);
-        moveSnake(obstacles);
     }
 
     @Override
