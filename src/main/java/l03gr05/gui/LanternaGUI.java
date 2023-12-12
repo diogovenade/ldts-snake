@@ -96,7 +96,12 @@ public class LanternaGUI {
 
     public void drawSnake(Snake snake) {
         for (Position segment : snake.getBody()) {
-            drawFilledSquare(segment.getX(), segment.getY(), 1, "#00FF00");
+            if (segment == snake.getSnakeHead()){
+                drawFilledSquare(segment.getX(), segment.getY(), 1, "#FFFFFF");
+            }
+            else {
+                drawFilledSquare(segment.getX(), segment.getY(), 1, "#00FF00");
+            }
         }
     }
 

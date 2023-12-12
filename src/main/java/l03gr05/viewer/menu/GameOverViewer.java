@@ -13,9 +13,10 @@ public class GameOverViewer extends Viewer<GameOver> {
     @Override
     public void drawElements(LanternaGUI gui) {
         gui.drawText(new Position(5, 5), "GAME OVER", "#FFFFFF");
+        gui.drawText(new Position(5, 7), "SCORE : " + getModel().getScore(), "#FFFFFF");
 
         for (int i = 0; i < getModel().getNumberEntries(); i++) {
-            gui.drawText(new Position(5, 7 + i),
+            gui.drawText(new Position(5, 9 + i),
                     getModel().getEntry(i),
                     getModel().isSelected(i) ? "#FFD700" : "#FFFFFF");
         }

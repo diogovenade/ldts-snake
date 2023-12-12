@@ -98,5 +98,9 @@ public class Arena {
             walls.add(newWall);
         }
     }
+
+    public void setScore() {
+
+    }
 }
 

@@ -1,7 +1,6 @@
 package l03gr05.model.menu;
 
 import java.util.Arrays;
-import java.util.List;
 
 public class Settings extends MenuModel {
     private String size;

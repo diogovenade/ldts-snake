@@ -3,9 +3,9 @@ package l03gr05.model.menu;
 import java.util.Arrays;
 
 public class GameOver extends MenuModel {
-
-    public GameOver() {
+    public GameOver(int score) {
         super();
+        this.score = score;
         entries = Arrays.asList("RESTART GAME", "MAIN MENU");
     }
 
@@ -15,5 +15,10 @@ public class GameOver extends MenuModel {
 
     public boolean isSelectedMain() {
         return isSelected(1);
+    }
+
+    @Override
+    public int getScore() {
+        return this.score;
     }
 }
