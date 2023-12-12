@@ -99,10 +99,15 @@ public class Arena {
 
         while (true) {
             Wall newWall = new Wall(new Random().nextInt(width), new Random().nextInt(height));
+
+            boolean nearSnakeHead = snake.getBody().stream()
+                    .anyMatch(segment -> Math.abs(segment.getX() - newWall.getPosition().getX()) <= 1 &&
+                            Math.abs(segment.getY() - newWall.getPosition().getY()) <= 1);
+
             positionOccupied = walls.stream().anyMatch(wall -> wall.getPosition().equals(newWall.getPosition())) ||
                     snake.getBody().stream().anyMatch(segment -> segment.equals(newWall.getPosition()));
 
-            if (!positionOccupied) {
+            if (!positionOccupied && !nearSnakeHead) {
                 walls.add(newWall);
                 break;
             }
