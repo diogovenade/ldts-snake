@@ -83,24 +83,30 @@ public class Arena {
     }
 
     public void respawnFruit() {
-        do {
+        while (true) {
             fruit.respawn(width, height);
-        } while (isWall(fruit.getPosition()) || isSnake(fruit.getPosition()));
-    }
+            boolean positionOccupied = walls.stream().anyMatch(wall -> wall.getPosition().equals(fruit.getPosition())) ||
+                    snake.getBody().stream().anyMatch(segment -> segment.equals(fruit.getPosition()));
 
-    public void addObstacle() {
-        Wall newWall = new Wall(new Random().nextInt(width), new Random().nextInt(height));
-
-        boolean positionOccupied = walls.stream().anyMatch(wall -> wall.getPosition().equals(newWall.getPosition())) ||
-                snake.getBody().stream().anyMatch(segment -> segment.equals(newWall.getPosition()));
-
-        if (!positionOccupied) {
-            walls.add(newWall);
+            if (!positionOccupied) {
+                break;
+            }
         }
     }
 
-    public void setScore() {
+    public void addObstacle() {
+        boolean positionOccupied;
 
+        while (true) {
+            Wall newWall = new Wall(new Random().nextInt(width), new Random().nextInt(height));
+            positionOccupied = walls.stream().anyMatch(wall -> wall.getPosition().equals(newWall.getPosition())) ||
+                    snake.getBody().stream().anyMatch(segment -> segment.equals(newWall.getPosition()));
+
+            if (!positionOccupied) {
+                walls.add(newWall);
+                break;
+            }
+        }
     }
 }
 

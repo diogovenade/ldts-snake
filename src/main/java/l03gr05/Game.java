@@ -30,6 +30,7 @@ public class Game {
             long startTime = System.currentTimeMillis();
 
             state.step(this, gui, startTime);
+            gui.refresh();
 
             long elapsedTime = System.currentTimeMillis() - startTime;
             long sleepTime = frameTime - elapsedTime;

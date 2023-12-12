@@ -29,8 +29,11 @@ public class SnakeController extends GameController {
             getModel().getSnake().increaseLength();
             getModel().getSnake().increaseScore();
             getModel().respawnFruit();
-            if (obstacles)
-                getModel().addObstacle();
+            if (obstacles) {
+                if (getModel().getSnake().getScore() % 2 != 0) {
+                    getModel().addObstacle();
+                }
+            }
         }
 
         getModel().getSnake().move();
@@ -67,7 +70,7 @@ public class SnakeController extends GameController {
         boolean obstacles = state.isObstacles();
         long movementDuration = calculateMovementDuration(speedIndex);
 
-            if (time - lastMovement > movementDuration && !isGameOver()) {
+        if (time - lastMovement > movementDuration && !isGameOver()) {
             moveSnake(obstacles);
             lastMovement = time;
             lastDirection = getModel().getSnake().getDirection();
