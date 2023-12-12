@@ -1,5 +1,6 @@
 package model;
 
+import l03gr05.model.Position;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import net.jqwik.api.ForAll;

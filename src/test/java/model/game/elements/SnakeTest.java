@@ -1,7 +1,10 @@
 package model.game.elements;
 
+
 import model.Direction;
 import model.Position;
+import l03gr05.model.Position;
+import l03gr05.model.game.elements.Snake;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
