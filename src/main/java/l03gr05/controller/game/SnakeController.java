@@ -36,28 +36,28 @@ public class SnakeController extends GameController {
         getModel().getSnake().move();
     }
 
-    public void moveSnakeUp(boolean obstacles) {
-        if (lastDirection == Direction.Down || lastDirection == Direction.Up)
-            return;
-        getModel().getSnake().setDirection(Direction.Up);;
+    public void newdirSnakeUp() {
+        if (lastDirection != Direction.Down) {
+            getModel().getSnake().setDirection(Direction.Up);
+        }
     }
 
-    public void moveSnakeDown(boolean obstacles) {
-        if (lastDirection == Direction.Up || lastDirection == Direction.Down)
-            return;
-        getModel().getSnake().setDirection(Direction.Down);;
+    public void newdirSnakeDown() {
+        if (lastDirection != Direction.Up) {
+            getModel().getSnake().setDirection(Direction.Down);
+        }
     }
 
-    public void moveSnakeLeft(boolean obstacles) {
-        if (lastDirection == Direction.Right || lastDirection == Direction.Left)
-            return;
-        getModel().getSnake().setDirection(Direction.Left);;
+    public void newdirSnakeLeft() {
+        if (lastDirection != Direction.Right) {
+            getModel().getSnake().setDirection(Direction.Left);
+        }
     }
 
-    public void moveSnakeRight(boolean obstacles) {
-        if (lastDirection == Direction.Left || lastDirection == Direction.Right)
-            return;
-        getModel().getSnake().setDirection(Direction.Right);
+    public void newdirSnakeRight() {
+        if (lastDirection != Direction.Left) {
+            getModel().getSnake().setDirection(Direction.Right);
+        }
     }
 
     @Override
@@ -70,22 +70,19 @@ public class SnakeController extends GameController {
             if (time - lastMovement > movementDuration && !isGameOver()) {
             moveSnake(obstacles);
             lastMovement = time;
+            lastDirection = getModel().getSnake().getDirection();
         }
         if (action == Action.Up) {
-            moveSnakeUp(obstacles);
-            lastDirection = Direction.Up;
+            newdirSnakeUp();
         }
         if (action == Action.Right) {
-            moveSnakeRight(obstacles);
-            lastDirection = Direction.Right;
+            newdirSnakeRight();
         }
         if (action == Action.Down) {
-            moveSnakeDown(obstacles);
-            lastDirection = Direction.Down;
+            newdirSnakeDown();
         }
         if (action == Action.Left) {
-            moveSnakeLeft(obstacles);
-            lastDirection = Direction.Left;
+            newdirSnakeLeft();
         }
     }
 
