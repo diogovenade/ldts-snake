@@ -8,6 +8,10 @@ import l03gr05.states.GameOverState;
 import l03gr05.states.GameState;
 import l03gr05.states.State;
 
+import java.awt.*;
+import java.io.IOException;
+import java.net.URISyntaxException;
+
 public class ArenaController extends GameController {
     private final SnakeController snakeController;
 
@@ -17,7 +21,7 @@ public class ArenaController extends GameController {
     }
 
     @Override
-    public void step(Game game, Action action, long time) {
+    public void step(Game game, Action action, long time) throws IOException, URISyntaxException, FontFormatException {
         State state = game.getState();
         int speedIndex = state.getSpeedIndex();
         int sizeIndex = state.getSizeIndex();
@@ -27,6 +31,8 @@ public class ArenaController extends GameController {
             newState.setSizeIndex(sizeIndex);
             newState.setSpeedIndex(speedIndex);
             newState.setObstacles(obstacles);
+            if (sizeIndex == 0 || sizeIndex == 2)
+                game.setWindowSize(20, 20);
             game.setState(newState);
         }
         else {

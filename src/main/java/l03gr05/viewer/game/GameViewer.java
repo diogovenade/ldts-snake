@@ -21,7 +21,7 @@ public class GameViewer extends Viewer<Arena> {
 
         int centerX = gui.getWidth() / 2;
 
-        gui.drawText(new Position(centerX - 4, 0), "Score: " + getModel().getSnake().getScore(), "#04EC0B");
+        gui.drawText(new Position(0, 0), "Score: " + String.format("%02d", getModel().getSnake().getScore()), "#04EC0B");
     }
 
     private <T extends Element> void drawElements(LanternaGUI gui, List<T> elements, ElementViewer<T> viewer) {

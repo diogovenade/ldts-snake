@@ -68,12 +68,11 @@ public class MainMenuController extends Controller<MainMenu> {
                     gameState = new GameState(new ClassicArenaBuilder(15, 15).createArena());
                 }
                 else if (sizeIndex == 1) {
-                    game.setWindowSize(20, 20);
                     gameState = new GameState(new ClassicArenaBuilder(20, 20).createArena());
                 }
                 else {
-                    game.setWindowSize(25, 25);
-                    gameState = new GameState(new ClassicArenaBuilder(25, 25).createArena());
+                    game.setWindowSize(25, 22);
+                    gameState = new GameState(new ClassicArenaBuilder(25, 22).createArena());
                 }
                 gameState.setSizeIndex(sizeIndex);
                 gameState.setSpeedIndex(speedIndex);
