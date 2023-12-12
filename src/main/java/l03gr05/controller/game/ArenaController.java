@@ -27,7 +27,7 @@ public class ArenaController extends GameController {
         int sizeIndex = state.getSizeIndex();
         boolean obstacles = state.isObstacles();
         if (action == Action.Quit || snakeController.isGameOver()) {
-            State newState = new GameOverState(new GameOver());
+            State newState = new GameOverState(new GameOver(getModel().getSnake().getScore()));
             newState.setSizeIndex(sizeIndex);
             newState.setSpeedIndex(speedIndex);
             newState.setObstacles(obstacles);

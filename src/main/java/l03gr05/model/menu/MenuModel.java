@@ -6,7 +6,9 @@ public class MenuModel {
     protected int selectedEntry = 0;
     protected boolean running;
     protected List<String> entries;
+    protected int score;
     public MenuModel() {
+
         this.running = true;
     }
 
@@ -37,5 +39,11 @@ public class MenuModel {
     }
     public boolean isRunning() {
         return running;
+    }
+    public void setScore(int score){
+        this.score = score;
+    }
+    public int getScore(){
+        return this.score;
     }
 }

@@ -22,9 +22,8 @@ public class Game {
     public void setState(State state) {
         this.state = state;
     }
-
     private void start() throws IOException, URISyntaxException, FontFormatException {
-        int FPS = 10;
+        int FPS = 60;
         int frameTime = 1000 / FPS;
 
         while (this.state != null) {
