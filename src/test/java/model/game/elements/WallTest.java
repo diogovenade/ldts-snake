@@ -22,6 +22,7 @@ public class WallTest {
         when(snakeMock.getPosition()).thenReturn(new Position(3, 3));
     }
 
+    @Test
     public void testGetPosition() {
         Position expectedPosition = new Position(5, 5);
         assertEquals(expectedPosition, wall.getPosition());

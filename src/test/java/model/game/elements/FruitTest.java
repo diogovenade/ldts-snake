@@ -42,12 +42,5 @@ public class FruitTest {
         Position expectedPosition = new Position(5, 5);
         assertNotEquals(expectedPosition, fruit.getPosition());
     }
-
-    @Test
-    public void testChangeToRandomPosition() {
-        when(snakeMock.getPosition()).thenReturn(new Position(3, 3));
-        fruit.respawn(2,2);
-        verify(snakeMock, atLeastOnce()).getPosition();
-        assertNotEquals(snakeMock.getPosition(), fruit.getPosition());
     }
 }

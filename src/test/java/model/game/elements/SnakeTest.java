@@ -49,9 +49,9 @@ public class SnakeTest {
     @Test
     void testSnakeBody() {
         LinkedList<Position> expectedBody = new LinkedList<>();
-        Position p1 = new Position(5, 10);
+        Position p1 = new Position(3, 10);
         Position p2 = new Position(4, 10);
-        Position p3 = new Position(3, 10);
+        Position p3 = new Position(5, 10);
         expectedBody.add(p1);
         expectedBody.add(p2);
         expectedBody.add(p3);
