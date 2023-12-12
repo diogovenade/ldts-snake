@@ -1,4 +1,4 @@
-/*package viewer;
+package viewer;
 
 import model.game.elements.Snake;
 import org.junit.jupiter.api.BeforeEach;
@@ -25,4 +25,3 @@ public class SnakeViewerTest {
     }
 
 }
-*/
