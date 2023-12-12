@@ -78,4 +78,8 @@ public class Snake extends Element {
     public void increaseLength() {
         this.length++;
     }
+
+    public void addPosition() {
+        this.body.addFirst(new Position(body.getFirst().getX() - 1, body.getFirst().getY()));
+    }
 }

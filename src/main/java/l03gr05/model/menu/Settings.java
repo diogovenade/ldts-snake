@@ -9,7 +9,7 @@ public class Settings extends MenuModel {
 
     public Settings() {
         super();
-        entries = Arrays.asList("SMALL", "MEDIUM", "LARGE", "SLOW", "MEDIUM", "FAST", "TEST", "YES", "NO", "BACK");
+        entries = Arrays.asList("SMALL", "MEDIUM", "LARGE", "SLOW", "MEDIUM", "FAST", "YES", "NO", "BACK");
     }
 
     public boolean isSelectedSmall() {
@@ -36,15 +36,15 @@ public class Settings extends MenuModel {
         return isSelected(5);
     }
     public boolean isSelectedYes() {
-        return isSelected(7);
+        return isSelected(6);
     }
 
     public boolean isSelectedNo() {
-        return isSelected(8);
+        return isSelected(7);
     }
 
     public boolean isSelectedBack() {
-        return isSelected(9);
+        return isSelected(8);
     }
 
     public String getSize() {

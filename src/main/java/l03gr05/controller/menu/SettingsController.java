@@ -68,10 +68,6 @@ public class SettingsController extends Controller<Settings> {
                     state.setSpeedIndex(2);
                     getModel().setSpeed("FAST");
                 }
-                if (getModel().isSelectedTest()) {
-                    state.setSpeedIndex(3);
-                    getModel().setSpeed("TEST");
-                }
 
                 if (getModel().isSelectedYes()) {
                     state.setObstacles(true);

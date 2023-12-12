@@ -12,31 +12,31 @@ public class SettingsViewer extends Viewer<Settings> {
 
     @Override
     public void drawElements(LanternaGUI gui) {
-        gui.drawText(new Position(1,1), "SIZE: " + getModel().getSize(), "#FFFFFF");
-        gui.drawText(new Position(1,2), "SPEED: " + getModel().getSpeed(), "#FFFFFF");
-        gui.drawText(new Position(1,3), "OBSTACLES: " + getModel().getObstacles(), "#FFFFFF");
-        gui.drawText(new Position(5, 4), "SIZE", "#FFFFFF");
+        gui.drawText(new Position(1,1), "SIZE: " + getModel().getSize(), "#00DD07");
+        gui.drawText(new Position(1,2), "SPEED: " + getModel().getSpeed(), "#00DD07");
+        gui.drawText(new Position(1,3), "OBSTACLES: " + getModel().getObstacles(), "#00DD07");
+        gui.drawText(new Position(5, 5), "SIZE", "#FF0000");
         for (int i = 0; i < 3; i++) {
-            gui.drawText(new Position (6, 5 + i),
+            gui.drawText(new Position (6, 6 + i),
                     getModel().getEntry(i),
                     getModel().isSelected(i) ? "#FFD700" : "#FFFFFF");
         }
 
-        gui.drawText(new Position (5, 9), "SPEED", "#FFFFFF");
-        for (int i = 3; i < 7; i++) {
-            gui.drawText(new Position(6, 10 + i - 3),
+        gui.drawText(new Position (5, 10), "SPEED", "#FF0000");
+        for (int i = 3; i < 6; i++) {
+            gui.drawText(new Position(6, 11 + i - 3),
                     getModel().getEntry(i),
                     getModel().isSelected(i) ? "#FFD700" : "#FFFFFF");
         }
 
-        gui.drawText(new Position(5, 15), "OBSTACLES", "#FFFFFF");
-        for (int i = 7; i < 9; i++) {
-            gui.drawText(new Position(6, 16 + i - 7),
+        gui.drawText(new Position(5, 15), "OBSTACLES", "#FF0000");
+        for (int i = 6; i < 8; i++) {
+            gui.drawText(new Position(6, 17 + i - 7),
                     getModel().getEntry(i),
                     getModel().isSelected(i) ? "#FFD700" : "#FFFFFF");
         }
 
-        gui.drawText(new Position (5, 18), getModel().getEntry(9), getModel().isSelected(9) ? "#FFD700" : "#FFFFFF");
+        gui.drawText(new Position (5, 19), getModel().getEntry(8), getModel().isSelected(8) ? "#FFD700" : "#FFFFFF");
     }
 
 }
