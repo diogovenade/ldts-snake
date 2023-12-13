@@ -2,4 +2,6 @@
 .idea
 bin
 build
+gradlew
+gradlew.bat
 project-l03gr05.iml

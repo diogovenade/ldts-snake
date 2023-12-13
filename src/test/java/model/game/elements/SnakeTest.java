@@ -70,7 +70,7 @@ public class SnakeTest {
         assertEquals(expectedPosition, snake.getSnakeHead());   
     }
 
-    public void testMoveBodyList(){
+    /*public void testMoveBodyList(){
         snake.setDirection(Direction.Right);
         snake.setLength(4);
         snake.move();
@@ -88,6 +88,6 @@ public class SnakeTest {
         expectedBody.add(expectedPosition3);
         expectedBody.add(expectedPosition4);
 
-        assertEquals(expectedBody, snake.getBody());   
-    }
+        assertEquals(expectedBody, snake.getBody());
+    } */
 }
