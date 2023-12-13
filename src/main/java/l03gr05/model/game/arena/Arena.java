@@ -85,7 +85,7 @@ public class Arena {
     public void respawnFruit() {
         Position currentPosition = fruit.getPosition();
         while (true) {
-            fruit.respawn(4, 4);
+            fruit.respawn(width, height);
             boolean positionOccupied = walls.stream().anyMatch(wall -> wall.getPosition().equals(fruit.getPosition())) ||
                     snake.getBody().stream().anyMatch(segment -> segment.equals(fruit.getPosition()));
 
