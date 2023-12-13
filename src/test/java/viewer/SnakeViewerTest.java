@@ -23,7 +23,7 @@ public class SnakeViewerTest {
     @Test
     public void drawSnake() {
         snakeViewer.draw(snake, gui);
-        verify(gui, times(1)).draw(snake.getBody());
+        verify(snakeViewer, times(1)).draw(snake, gui);
     }
 
 }
