@@ -6,11 +6,7 @@ import l03gr05.model.Direction;
 import java.util.LinkedList;
 
 
-import static model.Direction.Down;
-import static model.Direction.Left;
-import static model.Direction.Right;
-import static model.Direction.Up;
-import static l03gr05.model.Direction.Right;
+import static l03gr05.model.Direction.*;
 
 
 public class Snake extends Element {

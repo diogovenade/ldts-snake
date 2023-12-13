@@ -5,7 +5,6 @@ import l03gr05.gui.Action;
 import l03gr05.model.game.arena.Arena;
 import l03gr05.model.menu.GameOver;
 import l03gr05.states.GameOverState;
-import l03gr05.states.GameState;
 import l03gr05.states.State;
 
 import java.awt.*;

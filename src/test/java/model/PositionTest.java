@@ -1,10 +1,10 @@
 package model;
 
-import l03gr05.model.Position;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import net.jqwik.api.ForAll;
 import net.jqwik.api.Property;
+import l03gr05.model.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;

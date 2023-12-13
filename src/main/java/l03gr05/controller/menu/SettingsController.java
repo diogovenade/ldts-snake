@@ -6,7 +6,6 @@ import l03gr05.gui.Action;
 import l03gr05.model.menu.MainMenu;
 import l03gr05.model.menu.Settings;
 import l03gr05.states.MainMenuState;
-import l03gr05.states.SettingsState;
 import l03gr05.states.State;
 
 import java.io.IOException;

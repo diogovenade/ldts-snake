@@ -1,22 +1,12 @@
 package gui;
 
-import com.googlecode.lanterna.TerminalSize;
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
-import com.googlecode.lanterna.input.KeyStroke;
-import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.screen.Screen;
-import com.googlecode.lanterna.screen.TerminalScreen;
-import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
-import com.googlecode.lanterna.terminal.Terminal;
-import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
-import model.Position;
+import l03gr05.model.*;
+import l03gr05.model.game.elements.*;
+import l03gr05.gui.*;
 
-import java.awt.*;
-import java.io.File;
-import java.io.IOException;
-import java.net.URISyntaxException;
-import java.net.URL;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -48,7 +38,7 @@ public class LanternaGUITest {
 
     @Test
     void drawSnake() {
-        gui.drawSnake(new Position(1,1));
+        gui.drawSnake(new Snake(1,1));
 
         Mockito.verify(tg, Mockito.times(1)).setForegroundColor(new TextColor.RGB(0, 255, 0));
     }
@@ -74,4 +64,5 @@ public class LanternaGUITest {
         Mockito.verify(tg, Mockito.times(1)).setForegroundColor(new TextColor.RGB(1, 255, 254));
         Mockito.verify(tg, Mockito.times(1)).putString(1, 1, "Hello World");
     }
+
 }

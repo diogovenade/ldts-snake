@@ -42,5 +42,4 @@ public class FruitTest {
         Position expectedPosition = new Position(5, 5);
         assertNotEquals(expectedPosition, fruit.getPosition());
     }
-    }
 }

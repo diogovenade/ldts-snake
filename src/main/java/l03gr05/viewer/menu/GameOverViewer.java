@@ -3,7 +3,6 @@ package l03gr05.viewer.menu;
 import l03gr05.gui.LanternaGUI;
 import l03gr05.model.Position;
 import l03gr05.model.game.elements.Snake;
-import l03gr05.model.game.elements.Wall;
 import l03gr05.model.menu.GameOver;
 import l03gr05.viewer.Viewer;
 

@@ -5,7 +5,6 @@ import l03gr05.gui.Action;
 import l03gr05.model.Direction;
 import l03gr05.model.Position;
 import l03gr05.model.game.arena.Arena;
-import l03gr05.states.GameState;
 import l03gr05.states.State;
 
 public class SnakeController extends GameController {

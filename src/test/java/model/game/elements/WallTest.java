@@ -1,11 +1,10 @@
 package model.game.elements;
 
-import model.Direction;
-import model.Position;
+import l03gr05.model.*;
+import l03gr05.model.game.elements.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.LinkedList;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.mock;
