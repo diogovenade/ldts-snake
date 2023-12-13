@@ -67,14 +67,6 @@ public class Snake extends Element {
         };
     }
 
-    public int getLength() {
-        return length;
-    }
-
-    public void setLength(int length) {
-        this.length = length;
-    }
-
     public void increaseLength() {
         this.length++;
     }

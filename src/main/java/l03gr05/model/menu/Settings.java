@@ -71,5 +71,4 @@ public class Settings extends MenuModel {
         this.obstacles = obstacles;
     }
 
-    public boolean isSelectedTest() {return isSelected(6);}
 }

@@ -17,7 +17,7 @@ public class SettingsController extends Controller<Settings> {
     }
 
     @Override
-    public void step(Game game, Action action, long time) throws IOException {
+    public void step(Game game, Action action, long time) {
         State state = game.getState();
         int speedIndex = state.getSpeedIndex();
         int sizeIndex = state.getSizeIndex();

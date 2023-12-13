@@ -8,7 +8,6 @@ public class MenuModel {
     protected List<String> entries;
     protected int score;
     public MenuModel() {
-
         this.running = true;
     }
 
@@ -25,24 +24,14 @@ public class MenuModel {
     public String getEntry(int i) {
         return entries.get(i);
     }
-    public String getSelectedEntry() {
-        return entries.get(selectedEntry);
-    }
+
     public int getNumberEntries() {
         return entries.size();
     }
     public boolean isSelected(int i) {
         return selectedEntry == i;
     }
-    public void setRunning(boolean running) {
-        this.running = running;
-    }
-    public boolean isRunning() {
-        return running;
-    }
-    public void setScore(int score){
-        this.score = score;
-    }
+
     public int getScore(){
         return this.score;
     }
