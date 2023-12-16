@@ -27,20 +27,11 @@ public class SnakeTest {
     }
 
     @Test
-    void testGetScore() {
-        snake.increaseScore();
-        snake.increaseScore();
-        snake.increaseScore();
-        snake.increaseScore();
-        snake.increaseScore();
-        assertEquals(5, snake.getScore());
-    }
-
-    @Test
     void testIncreaseScore() {
-        assertEquals(0, snake.getScore());
-        snake.increaseScore();
-        assertEquals(1, snake.getScore());
+        for (int i = 0; i < 5; i++) {
+            snake.increaseScore();
+        }
+        assertEquals(5, snake.getScore());
     }
 
     @Test
@@ -63,31 +54,41 @@ public class SnakeTest {
     }
 
     @Test
-    public void testMoveHeadPosition(){
+    public void testMoveSnake(){
         snake.setDirection(Direction.Right);
         snake.move();
-        Position expectedPosition = new Position(6, 10);
-        assertEquals(expectedPosition, snake.getSnakeHead());   
-    }
-
-    /*public void testMoveBodyList(){
-        snake.setDirection(Direction.Right);
-        snake.setLength(4);
+        Position positionRight = new Position(6, 10);
+        assertEquals(positionRight, snake.getSnakeHead());
+        snake.setDirection(Direction.Up);
         snake.move();
+        Position positionUp = new Position(6, 9);
+        assertEquals(positionUp, snake.getSnakeHead());
+        snake.setDirection(Direction.Left);
         snake.move();
-        snake.move();
+        Position positionLeft = new Position(5, 9);
+        assertEquals(positionLeft, snake.getSnakeHead());
         snake.setDirection(Direction.Down);
         snake.move();
-        Position expectedPosition1 = new Position(6, 10);
+        Position positionDown = new Position(5, 10);
+        assertEquals(positionDown, snake.getSnakeHead());
+    }
+
+    @Test
+    public void testMoveBodyList(){
+        snake.setDirection(Direction.Right);
+        for (int i = 0; i < 3; i++) {
+            snake.move();
+        }
+        snake.setDirection(Direction.Down);
+        snake.move();
         Position expectedPosition2 = new Position(7, 10);
         Position expectedPosition3 = new Position(8, 10);
         Position expectedPosition4 = new Position(8, 11);
         LinkedList<Position> expectedBody = new LinkedList<>();
-        expectedBody.add(expectedPosition1);
         expectedBody.add(expectedPosition2);
         expectedBody.add(expectedPosition3);
         expectedBody.add(expectedPosition4);
 
         assertEquals(expectedBody, snake.getBody());
-    } */
+    }
 }
