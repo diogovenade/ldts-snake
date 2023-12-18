@@ -3,11 +3,19 @@
 ## Description:
 The game to be implemented in our project is going to be a recreation of the classic game "Snake". The player must control a snake in a grid and eat the fruit on the grid. When the fruit is eaten, another one pops up at a random position. As the player eats the fruits, the snake grows in size, making it more difficult to move it around the grid. The player loses if the head of the snake hits one of the edges of the grid or a part of its own body.
 
-## List of features:
-- A menu that allows the player to start and quit the game, as well as adjust speed and grid size through the settings;
-- Movement using the arrow keys;
-- "l03gr05.Game Over" conditions for when the player hits one of the edges of the grid or themselves;
-- A score system that also records the current High Score.
+## Implemented Features
+
+- **Main Menu** - The Main Menu is shown when the player boots up the game and lets the player start the game with the default settings or access the Settings Menu.
+- **Settings Menu** - The user can access the Settings Menu from the main menu where they can change the game size, speed and obstacle appearence rules.
+- **Different configurations** - The user can pick from 18 total possible settings configurations according to their tastes. They can pick from 3 different game speeds, 3 different window sizes and a toggle for the appearence of walls that make it more difficult to traverse the game area.
+- **Player movement** - Once in-game, the player's snake will automatically move foward at the speed defined in the Settings menu and the player can change direction by pressing the arrow keys.
+- **Collision detection** - Once in-game, if the player's snake runs into an obstacle, one of the edges of the grid or itself the game will end and the player will be brought to the Game Over Menu.
+- **Game Over menu** - The Game Over Menu is shown whenever the player fullfills the conditions necessary to lose the game. The player has the option to try again using the same settings.
+
+## Planned Features
+
+- The only planned feature that wasn't implemented was the High Score system.
+- The appearence of walls as obstacles was implemented despite not being in the planned features.
 
 ## Graphics Mockup
 ![Graphics Mockup](docs/image.png)
