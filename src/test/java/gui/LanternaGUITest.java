@@ -2,7 +2,9 @@ package gui;
 
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
+import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.screen.Screen;
+import l03gr05.gui.Action;
 import l03gr05.model.*;
 import l03gr05.model.game.elements.*;
 import l03gr05.gui.*;
@@ -12,14 +14,18 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
+import javax.swing.*;
+import java.io.IOException;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class LanternaGUITest {
-    private Screen screen;
     private LanternaGUI gui;
     private TextGraphics tg;
 
     @BeforeEach
     void setUp() {
-        screen = Mockito.mock(Screen.class);
+        Screen screen = Mockito.mock(Screen.class);
         tg = Mockito.mock(TextGraphics.class);
 
         Mockito.when(screen.newTextGraphics()).thenReturn(tg);
@@ -28,41 +34,47 @@ public class LanternaGUITest {
     }
 
 
-    /* @Test
+    @Test
     void drawFilledSquare() {
-        gui.drawFilledSquare(1,1,1,"#FFFFFF");
+        gui.drawFilledSquare(1, 1, 1, "#FFFFFF");
 
-        Mockito.verify(tg, Mockito.times(1)).setForegroundColor(new TextColor.RGB(255, 255, 255));
+        Mockito.verify(tg, Mockito.times(1)).setBackgroundColor(TextColor.Factory.fromString("#FFFFFF"));
         Mockito.verify(tg, Mockito.times(1)).putString(1, 1, " ");
-    } */
+    }
 
-    /* @Test
+    @Test
     void drawSnake() {
-        gui.drawSnake(new Snake(1,1));
+        Snake snake = new Snake(5, 5);
+        gui.drawSnake(snake);
 
-        Mockito.verify(tg, Mockito.times(1)).setForegroundColor(new TextColor.RGB(0, 255, 0));
-    } */
+        Mockito.verify(tg, Mockito.times(3)).setBackgroundColor(Mockito.any());
+        Mockito.verify(tg, Mockito.times(1)).putString(5, 5, " ");
+        Mockito.verify(tg, Mockito.times(1)).putString(4, 5, " ");
+        Mockito.verify(tg, Mockito.times(1)).putString(3, 5, " ");
+    }
 
-    /* @Test
+    @Test
     void drawFruit() {
         gui.drawFruit(new Position(1,1));
 
-        Mockito.verify(tg, Mockito.times(1)).setForegroundColor(new TextColor.RGB(255, 0, 0));
-    } */
+        Mockito.verify(tg, Mockito.times(1)).setBackgroundColor(Mockito.any());
+        Mockito.verify(tg, Mockito.times(1)).putString(1, 1, " ");
+    }
 
-    /* @Test
+    @Test
     void drawWall() {
         gui.drawWall(new Position(1,1));
 
-        Mockito.verify(tg, Mockito.times(1)).setForegroundColor(new TextColor.RGB(0, 0, 255));
-    } */
+        Mockito.verify(tg, Mockito.times(1)).setBackgroundColor(Mockito.any());
+        Mockito.verify(tg, Mockito.times(1)).putString(1, 1, " ");
+    }
 
     @Test
     void drawText() {
-        gui.drawText(new Position(1,1), "Hello World", "#01FFFE");
+        gui.drawText(new Position(1,1), "Test", "#000000");
 
-        Mockito.verify(tg, Mockito.times(1)).setForegroundColor(new TextColor.RGB(1, 255, 254));
-        Mockito.verify(tg, Mockito.times(1)).putString(1, 1, "Hello World");
+        Mockito.verify(tg, Mockito.times(1)).setForegroundColor(new TextColor.RGB(0, 0, 0));
+        Mockito.verify(tg, Mockito.times(1)).putString(1, 1, "Test");
     }
 
 }
