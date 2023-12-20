@@ -27,7 +27,7 @@ public class GameViewer extends Viewer<Arena> {
             drawElement(gui, element, viewer);
     }
 
-    private <T extends Element> void drawElement(LanternaGUI gui, T element, ElementViewer<T> viewer) {
+    public <T extends Element> void drawElement(LanternaGUI gui, T element, ElementViewer<T> viewer) {
         viewer.draw(element, gui);
     }
 }
