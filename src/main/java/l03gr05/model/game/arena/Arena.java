@@ -19,11 +19,6 @@ public class Arena {
         this.height = height;
     }
 
-    public void setSize(int width, int height) {
-        this.width = width;
-        this.height = height;
-    }
-
     public int getWidth() {
         return width;
     }
@@ -113,6 +108,10 @@ public class Arena {
                 break;
             }
         }
+    }
+
+    public boolean withinRange(Position position) {
+        return (position.getX() >= 0 && position.getX() <= width && position.getY() >= 0 && position.getY() <= height);
     }
 }
 
