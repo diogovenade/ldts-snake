@@ -26,7 +26,7 @@ public class MainMenuViewer extends Viewer<MainMenu> {
         }
     }
 
-    private void drawSnakeTitle(LanternaGUI gui) {
+    public void drawSnakeTitle(LanternaGUI gui) {
         String snakeTitle = "SNAKE";
 
         int startX = (gui.getWidth() - snakeTitle.length()) / 2;
@@ -41,7 +41,7 @@ public class MainMenuViewer extends Viewer<MainMenu> {
         gui.drawText(new Position(startX, startY), snakeTitle, "#00DD07");
     }
 
-    private void drawSnake(LanternaGUI gui) {
+    public void drawSnake(LanternaGUI gui) {
         Snake snake = new Snake(9, 15);
         int i = 4;
         while (i != 0) {
@@ -51,7 +51,7 @@ public class MainMenuViewer extends Viewer<MainMenu> {
         gui.drawSnake(snake);
     }
 
-    private void drawFruit(LanternaGUI gui) {
+    public void drawFruit(LanternaGUI gui) {
         gui.drawFruit(new Fruit(12, 15).getPosition());
     }
 }
