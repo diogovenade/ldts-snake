@@ -1,7 +1,4 @@
 package l03gr05.model;
-
-import java.util.Objects;
-
 public class Position {
     private final int x;
     private final int y;

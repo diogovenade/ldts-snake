@@ -1,4 +1,4 @@
-package model;
+package model.game;
 
 import l03gr05.model.Position;
 import l03gr05.model.game.arena.Arena;

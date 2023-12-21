@@ -1,4 +1,4 @@
-package model.game.elements;
+package model.game;
 
 
 import l03gr05.model.*;
