@@ -16,7 +16,7 @@ public class SnakeController extends GameController {
         this.lastMovement = 0;
     }
 
-    private void moveSnake(boolean obstacles) {
+    public void moveSnake(boolean obstacles) {
         Position nextPosition = getModel().getSnake().calculateNewHead();
 
         if (getModel().isSnake(nextPosition) || getModel().isWall(nextPosition)) {

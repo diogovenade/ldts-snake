@@ -39,8 +39,4 @@ public class ArenaController extends GameController {
             snakeController.step(game, action, time);
         }
     }
-
-    public SnakeController getSnakeController() {
-        return snakeController;
-    }
 }
