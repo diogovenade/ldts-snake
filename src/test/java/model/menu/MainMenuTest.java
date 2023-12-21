@@ -40,15 +40,19 @@ public class MainMenuTest {
         assertTrue(mainMenu.isSelectedSettings());
         mainMenu.nextEntry();
         assertFalse(mainMenu.isSelectedSettings());
+        mainMenu.previousEntry();
+        assertTrue(mainMenu.isSelectedSettings());
     }
 
     @Test
-    public void testIsSelectedQuit() {
+    public void testIsSelectedExit() {
         assertFalse(mainMenu.isSelectedExit());
-        mainMenu.nextEntry();
-        assertFalse(mainMenu.isSelectedExit());
-        mainMenu.nextEntry();
+        mainMenu.previousEntry();
         assertTrue(mainMenu.isSelectedExit());
+        mainMenu.nextEntry();
+        assertFalse(mainMenu.isSelectedExit());
+        mainMenu.nextEntry();
+        assertFalse(mainMenu.isSelectedExit());
     }
 
 }
