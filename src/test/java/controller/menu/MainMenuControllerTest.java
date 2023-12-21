@@ -1,6 +1,5 @@
 package controller.menu;
 
-import com.sun.tools.javac.Main;
 import l03gr05.Game;
 import l03gr05.controller.menu.MainMenuController;
 import l03gr05.gui.Action;
@@ -19,7 +18,7 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.*;
 import static org.mockito.Mockito.verify;
 
@@ -56,6 +55,18 @@ public class MainMenuControllerTest {
         mainMenuController.getModel().previousEntry();
         mainMenuController.step(game, Action.Select, 100);
         verify(game).setState(isNull());
+    }
+
+    @Test
+    public void testSelectUp() throws IOException, URISyntaxException, FontFormatException {
+        mainMenuController.step(game, Action.Up, 100);
+        assertTrue(mainMenuController.getModel().isSelected(2));
+    }
+
+    @Test
+    public void testSelectDown() throws IOException, URISyntaxException, FontFormatException {
+        mainMenuController.step(game, Action.Down, 100);
+        assertTrue(mainMenuController.getModel().isSelected(1));
     }
 
 
