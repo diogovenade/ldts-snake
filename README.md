@@ -36,7 +36,7 @@ The way these elements interact with each other are explained in the following i
 </p>
 <p align="center">
   <b><i>
-  Fig 1. Model, Controller and Viewer pattern design.
+  Fig 1. Model, Controller and Viewer pattern design. <lb>
   test
   </i></b>
 </p>
