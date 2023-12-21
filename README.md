@@ -35,7 +35,10 @@ The way these elements interact with each other are explained in the following i
   <img src="docs/MVC Auxiliary Image.png"/>
 </p>
 <p align="center">
-  <b><i>Fig 1. Model, Controller and Viewer pattern design</i></b>
+  <b><i>
+  Fig 1. Model, Controller and Viewer pattern design.
+  test
+  </i></b>
 </p>
 
 
