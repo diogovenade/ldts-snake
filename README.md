@@ -26,21 +26,25 @@ In this project we utilized the Model-View-Controller **Architectural Pattern**,
 We also used the **State Pattern**, which lets the behavior of an object easily change depending on what its internal state is.
 
 #### Implementation:
-Regarding the implementation, we now have classes which main purpose is to store data (model), classes that control the logic of the game (controllers) and classes that are responsible for the visual effects on the screen (viewers), these types of classes associate with each other in the following manner:
-
 Regarding the implementation, the MVC pattern lets us maintain classes with different functions. The model classes store and structure the game's data, the viewer classes deal with everything related to displaying the UI and other graphical elements while the controller classes manage the underlying logic of the game.
 The way these elements interact with each other are explained in the following image:
 
 <p align="center" justify="center">
-  <img src="docs/MVC Auxiliary Image.png"/>
+  <img src="docs/MVC pattern design interactions.png"/>
 </p>
 <p align="center">
   <b><i>
-  Fig 1. Model, Controller and Viewer pattern design.<br>
+  Fig 1. MVC pattern design interactions.<br>
   </i></b>
 </p>
 
 Attributions and copyright licensing by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Glossary/MVC/contributors.txt) is licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/)
+
+#### Consequences:
+The use of these patterns in the current design lead to the following benefits, besides the ones already mentioned:
+- The adherence to SOLID principles make development of new features easier and less prone to needing major structural changes.
+- It is easier to work with separate menus in a clearer and safer ways due to the fact they each belong to a separate class.
+
 
 ## Graphics Mockup
 ![Graphics Mockup](docs/image.png)
