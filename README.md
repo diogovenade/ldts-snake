@@ -37,11 +37,10 @@ The way these elements interact with each other are explained in the following i
 <p align="center">
   <b><i>
   Fig 1. Model, Controller and Viewer pattern design.<br>
-  Attributions and copyright licensing by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Glossary/MVC/contributors.txt) is licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/)
   </i></b>
 </p>
 
-
+Attributions and copyright licensing by [Mozilla Contributors](https://developer.mozilla.org/en-US/docs/Glossary/MVC/contributors.txt) is licensed under [CC-BY-SA 2.5](https://creativecommons.org/licenses/by-sa/2.5/)
 
 ## Graphics Mockup
 ![Graphics Mockup](docs/image.png)
