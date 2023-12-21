@@ -88,7 +88,7 @@ public class SnakeController extends GameController {
         }
     }
 
-    private long calculateMovementDuration(int speedIndex) {
+    public long calculateMovementDuration(int speedIndex) {
         switch (speedIndex) {
             case 0:
                 return 200;
@@ -103,10 +103,6 @@ public class SnakeController extends GameController {
 
     public boolean isGameOver() {
         return gameOver;
-    }
-
-    public void setGameOver(boolean gameOver) {
-        this.gameOver = gameOver;
     }
 
 }

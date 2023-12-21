@@ -2,6 +2,7 @@ package gui;
 
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
+import com.googlecode.lanterna.input.KeyStroke;
 import com.googlecode.lanterna.input.KeyType;
 import com.googlecode.lanterna.screen.Screen;
 import l03gr05.gui.Action;
@@ -15,20 +16,24 @@ import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
 import javax.swing.*;
+import java.awt.*;
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.*;
 
 public class LanternaGUITest {
     private LanternaGUI gui;
     private TextGraphics tg;
+    private Screen screen;
 
     @BeforeEach
     void setUp() {
-        Screen screen = Mockito.mock(Screen.class);
-        tg = Mockito.mock(TextGraphics.class);
+        screen = mock(Screen.class);
+        tg = mock(TextGraphics.class);
 
-        Mockito.when(screen.newTextGraphics()).thenReturn(tg);
+        when(screen.newTextGraphics()).thenReturn(tg);
 
         gui = new LanternaGUI(screen);
     }
@@ -75,6 +80,57 @@ public class LanternaGUITest {
 
         Mockito.verify(tg, Mockito.times(1)).setForegroundColor(new TextColor.RGB(0, 0, 0));
         Mockito.verify(tg, Mockito.times(1)).putString(1, 1, "Test");
+    }
+
+    @Test
+    void testGetNextAction() throws IOException {
+        when(screen.pollInput()).thenReturn(null);
+        assertEquals(Action.None, gui.getNextAction());
+
+        when(screen.pollInput()).thenReturn(new KeyStroke(KeyType.EOF));
+        assertEquals(Action.Quit, gui.getNextAction());
+
+        when(screen.pollInput()).thenReturn(new KeyStroke('q', true, true));
+        assertEquals(Action.Quit, gui.getNextAction());
+
+        when(screen.pollInput()).thenReturn(new KeyStroke(KeyType.ArrowUp));
+        assertEquals(Action.Up, gui.getNextAction());
+
+        when(screen.pollInput()).thenReturn(new KeyStroke(KeyType.ArrowDown));
+        assertEquals(Action.Down, gui.getNextAction());
+
+        when(screen.pollInput()).thenReturn(new KeyStroke(KeyType.ArrowRight));
+        assertEquals(Action.Right, gui.getNextAction());
+
+        when(screen.pollInput()).thenReturn(new KeyStroke(KeyType.ArrowLeft));
+        assertEquals(Action.Left, gui.getNextAction());
+
+        when(screen.pollInput()).thenReturn(new KeyStroke(KeyType.Enter));
+        assertEquals(Action.Select, gui.getNextAction());
+    }
+
+    @Test
+    void testGetWidth() throws IOException, URISyntaxException, FontFormatException {
+        LanternaGUI gui = new LanternaGUI(20, 20);
+        assertEquals(20, gui.getWidth());
+    }
+
+    @Test
+    void testClear() {
+        gui.clear();
+        verify(screen, times(1)).clear();
+    }
+
+    @Test
+    void testRefresh() throws IOException {
+        gui.refresh();
+        verify(screen, times(1)).refresh();
+    }
+
+    @Test
+    void testClose() throws IOException {
+        gui.close();
+        verify(screen, times(1)).close();
     }
 
 }

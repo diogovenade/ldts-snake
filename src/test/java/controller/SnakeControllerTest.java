@@ -2,7 +2,6 @@ package controller;
 
 import l03gr05.Game;
 import l03gr05.controller.game.SnakeController;
-import l03gr05.gui.Action;
 import l03gr05.model.Direction;
 import l03gr05.model.Position;
 import l03gr05.model.game.arena.Arena;
@@ -83,6 +82,34 @@ public class SnakeControllerTest {
         snakeController.moveSnake(false);
 
         assertTrue(snakeController.isGameOver());
+    }
+
+    @Test
+    public void testCalculateMovementDuration() {
+        assertEquals(200, snakeController.calculateMovementDuration(0));
+        assertEquals(120, snakeController.calculateMovementDuration(1));
+        assertEquals(80, snakeController.calculateMovementDuration(2));
+    }
+
+    @Test
+    public void testNewDirUp() {
+        snakeController.getModel().getSnake().setDirection(Direction.Left);
+        snakeController.newdirSnakeUp();
+        assertEquals(Direction.Up, snakeController.getModel().getSnake().getDirection());
+    }
+
+    @Test
+    public void testNewDirDown() {
+        snakeController.getModel().getSnake().setDirection(Direction.Left);
+        snakeController.newdirSnakeDown();
+        assertEquals(Direction.Down, snakeController.getModel().getSnake().getDirection());
+    }
+
+    @Test
+    public void testNewDirRight() {
+        snakeController.getModel().getSnake().setDirection(Direction.Up);
+        snakeController.newdirSnakeRight();
+        assertEquals(Direction.Right, snakeController.getModel().getSnake().getDirection());
     }
     
 }
