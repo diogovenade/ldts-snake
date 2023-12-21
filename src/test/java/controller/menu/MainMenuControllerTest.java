@@ -8,6 +8,7 @@ import l03gr05.model.game.arena.Arena;
 import l03gr05.model.game.arena.ClassicArenaBuilder;
 import l03gr05.model.menu.MainMenu;
 import l03gr05.states.GameState;
+import l03gr05.states.MainMenuState;
 import l03gr05.states.SettingsState;
 import l03gr05.states.State;
 import org.junit.jupiter.api.BeforeEach;
@@ -32,7 +33,7 @@ public class MainMenuControllerTest {
     public void setUp() {
         mainMenuController = new MainMenuController(new MainMenu());
         arena = new ClassicArenaBuilder(20, 20).createArena();
-        state = new GameState(arena);
+        state = new MainMenuState(new MainMenu());
         game = Mockito.mock(Game.class);
         Mockito.when(game.getState()).thenReturn(state);
     }
