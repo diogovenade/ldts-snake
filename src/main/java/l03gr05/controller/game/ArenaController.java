@@ -3,6 +3,7 @@ package l03gr05.controller.game;
 import l03gr05.Game;
 import l03gr05.gui.Action;
 import l03gr05.model.game.arena.Arena;
+import l03gr05.model.game.elements.Snake;
 import l03gr05.model.menu.GameOver;
 import l03gr05.states.GameOverState;
 import l03gr05.states.State;
@@ -14,9 +15,9 @@ import java.net.URISyntaxException;
 public class ArenaController extends GameController {
     private final SnakeController snakeController;
 
-    public ArenaController(Arena arena) {
+    public ArenaController(Arena arena, SnakeController snakeController) {
         super(arena);
-        this.snakeController = new SnakeController(arena);
+        this.snakeController = snakeController;
     }
 
     @Override
@@ -37,5 +38,9 @@ public class ArenaController extends GameController {
         else {
             snakeController.step(game, action, time);
         }
+    }
+
+    public SnakeController getSnakeController() {
+        return snakeController;
     }
 }
