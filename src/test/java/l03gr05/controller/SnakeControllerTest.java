@@ -1,4 +1,4 @@
-package controller;
+package l03gr05.controller;
 
 import l03gr05.Game;
 import l03gr05.controller.game.SnakeController;

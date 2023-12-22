@@ -1,4 +1,4 @@
-package l03gr05.controller.gui;
+package l03gr05.gui;
 
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;

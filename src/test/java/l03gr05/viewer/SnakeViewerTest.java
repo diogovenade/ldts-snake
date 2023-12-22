@@ -1,4 +1,4 @@
-package viewer;
+package l03gr05.viewer;
 
 import l03gr05.model.game.elements.Snake;
 import l03gr05.viewer.game.*;

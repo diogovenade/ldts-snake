@@ -1,4 +1,4 @@
-package controller.menu;
+package l03gr05.controller.menu;
 
 import l03gr05.Game;
 import l03gr05.controller.menu.SettingsController;

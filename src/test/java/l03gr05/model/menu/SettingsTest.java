@@ -1,4 +1,4 @@
-package model.menu;
+package l03gr05.model.menu;
 
 import l03gr05.model.menu.Settings;
 import org.junit.jupiter.api.BeforeEach;

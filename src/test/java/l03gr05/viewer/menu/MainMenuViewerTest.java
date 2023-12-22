@@ -1,4 +1,4 @@
-package viewer.menu;
+package l03gr05.viewer.menu;
 
 import l03gr05.gui.LanternaGUI;
 import l03gr05.model.menu.MainMenu;
