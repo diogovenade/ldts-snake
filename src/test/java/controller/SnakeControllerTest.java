@@ -2,6 +2,7 @@ package controller;
 
 import l03gr05.Game;
 import l03gr05.controller.game.SnakeController;
+import l03gr05.gui.Action;
 import l03gr05.model.Direction;
 import l03gr05.model.Position;
 import l03gr05.model.game.arena.Arena;
@@ -16,6 +17,8 @@ import org.mockito.Mockito;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 public class SnakeControllerTest {
     private SnakeController snakeController;
@@ -26,7 +29,7 @@ public class SnakeControllerTest {
     public void setUp() {
         arena = new ClassicArenaBuilder(20, 20).createArena();
         snakeController = new SnakeController(arena);
-        game = Mockito.mock(Game.class);
+        game = mock(Game.class);
     }
 
     @Test
@@ -35,7 +38,7 @@ public class SnakeControllerTest {
         state.setSizeIndex(1);
         state.setSpeedIndex(1);
         state.setObstacles(false);
-        Mockito.when(game.getState()).thenReturn(state);
+        when(game.getState()).thenReturn(state);
 
         Position currentPosition = arena.getSnake().getSnakeHead();
 
@@ -54,7 +57,7 @@ public class SnakeControllerTest {
         state.setSizeIndex(1);
         state.setSpeedIndex(1);
         state.setObstacles(false);
-        Mockito.when(game.getState()).thenReturn(state);
+        when(game.getState()).thenReturn(state);
 
         Position currentPosition = arena.getSnake().getSnakeHead();
         int currentScore = arena.getSnake().getScore();
@@ -75,7 +78,7 @@ public class SnakeControllerTest {
         state.setSizeIndex(1);
         state.setSpeedIndex(1);
         state.setObstacles(true);
-        Mockito.when(game.getState()).thenReturn(state);
+        when(game.getState()).thenReturn(state);
 
         arena.getSnake().setDirection(Direction.Up);
         snakeController.newdirSnakeRight();
@@ -110,6 +113,51 @@ public class SnakeControllerTest {
         snakeController.getModel().getSnake().setDirection(Direction.Up);
         snakeController.newdirSnakeRight();
         assertEquals(Direction.Right, snakeController.getModel().getSnake().getDirection());
+    }
+
+    @Test
+    public void testStep() {
+        Game game1 = mock(Game.class);
+        State state1 = mock(GameState.class);
+        when(state1.getSizeIndex()).thenReturn(1);
+        when(state1.getSpeedIndex()).thenReturn(1);
+        when(state1.isObstacles()).thenReturn(false);
+        when(game1.getState()).thenReturn(state1);
+
+        snakeController.getModel().getSnake().setDirection(Direction.Right);
+        snakeController.step(game1, Action.Up, 100);
+
+        assertEquals(Direction.Up, snakeController.getModel().getSnake().getDirection());
+
+        snakeController.getModel().getSnake().setDirection(Direction.Left);
+        snakeController.step(game1, Action.Down, 100);
+
+        assertEquals(Direction.Down, snakeController.getModel().getSnake().getDirection());
+
+        snakeController.getModel().getSnake().setDirection(Direction.Up);
+        snakeController.step(game1, Action.Right, 100);
+
+        assertEquals(Direction.Right, snakeController.getModel().getSnake().getDirection());
+
+        Direction currentDirection = snakeController.getModel().getSnake().getDirection();
+        snakeController.step(game1, Action.None, 100);
+
+        assertEquals(currentDirection, snakeController.getModel().getSnake().getDirection());
+
+        Game game2 = mock(Game.class);
+        State state2 = mock(GameState.class);
+        when(state2.getSizeIndex()).thenReturn(2);
+        when(state2.getSpeedIndex()).thenReturn(2);
+        when(state2.isObstacles()).thenReturn(true);
+        when(game2.getState()).thenReturn(state2);
+
+        Position currentPosition = snakeController.getModel().getSnake().getSnakeHead();
+
+        snakeController.getModel().getSnake().setDirection(Direction.Right);
+        snakeController.step(game2, Action.None, 100);
+
+        assertEquals(currentPosition.getX() + 1, snakeController.getModel().getSnake().getSnakeHead().getX());
+        assertEquals(currentPosition.getY(), snakeController.getModel().getSnake().getSnakeHead().getY());
     }
     
 }

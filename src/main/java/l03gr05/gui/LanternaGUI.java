@@ -123,6 +123,10 @@ public class LanternaGUI {
         return this.width;
     }
 
+    public int getHeight() {
+        return this.height;
+    }
+
     public void clear() {
         screen.clear();
     }

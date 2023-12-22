@@ -11,18 +11,18 @@ import java.net.URISyntaxException;
 
 public class Game {
     public static void main(String[] args) throws IOException, FontFormatException, URISyntaxException {
-        new Game().start();
+        new Game(new LanternaGUI(20,20)).start();
     }
     private LanternaGUI gui;
     private State state;
-    public Game() throws IOException, URISyntaxException, FontFormatException {
-        this.gui = new LanternaGUI(20,20);
+    public Game(LanternaGUI gui) throws IOException, URISyntaxException, FontFormatException {
+        this.gui = gui;
         this.state = new MainMenuState(new MainMenu());
     }
     public void setState(State state) {
         this.state = state;
     }
-    private void start() throws IOException, URISyntaxException, FontFormatException {
+    public void start() throws IOException, URISyntaxException, FontFormatException {
         int FPS = 60;
         int frameTime = 1000 / FPS;
 
