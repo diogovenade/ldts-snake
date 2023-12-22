@@ -1,7 +1,7 @@
 # LDTS - Project 1: Snake
 
 ## Description:
-The game to be implemented in our project is going to be a recreation of the classic game "Snake". The player must control a snake in a grid and eat the fruit on the grid. When the fruit is eaten, another one pops up at a random position. As the player eats the fruits, the snake grows in size, making it more difficult to move it around the grid. The player loses if the head of the snake hits one of the edges of the grid or a part of its own body.
+The game to be implemented in our project is a recreation of the classic game "Snake". The player must control a snake in a grid and eat the fruit on the grid. When the fruit is eaten, another one pops up at a random position. As the player eats the fruits, the snake grows in size, making it more difficult to move it around the grid. The player loses if the head of the snake hits one of the edges of the grid or a part of its own body.
 
 ## Implemented Features
 
@@ -45,34 +45,79 @@ The use of these patterns in the current design lead to the following benefits, 
 - The adherence to SOLID principles make development of new features easier and less prone to needing major structural changes.
 - It is easier to work with separate menus in a clearer and safer ways due to the fact they each belong to a separate class.
 
+### State Structure
+
+#### Problem in Context:
+The game's behavior changes depending on the current situation. We implemented this using the State pattern in order to define what conditions lead to the change in the game's behavior in accordance with SOLID principles.
+
+#### Implementation
+
+<p align="center" justify="center">
+  <img src="docs/State UML Diagram.png"/>
+</p>
+<p align="center">
+  <b><i>Fig 2. State UML Diagram</i></b>
+</p>
+
+These classes can be found in the following files:
+- [State](src/main/java/l03gr05/states/State.java)
+- [SettingsState](src/main/java/l03gr05/states/SettingsState.java)
+- [MainMenuState](src/main/java/l03gr05/states/MainMenuState.java)
+- [GameState](src/main/java/l03gr05/states/GameState.java)
+- [GameOverState](src/main/java/l03gr05/states/GameOverState.java)
+
+
+### Game Loop Pattern
+
+#### Problem in Context:
+The game should not wait for player input in order to move the snake. In order to make the snake move on its own we used the **Game Loop** design pattern. This ensured that the game would only need player inputs to change the direction of the snake.
+
+#### Implementation
+
+<p align="center" justify="center">
+  <img src="docs/State UML Diagram.png"/>
+</p>
+<p align="center">
+  <b><i>Fig 2. State UML Diagram</i></b>
+</p>
+
+
+
+
+## Known-code smells
+
+We fixed most code smells identified by IntelIJ error-prone. The only one remaining was the following:
+
+ "duplicate code on 'SettingsController' and 'MainMenuController'."
+
+ The removal of this smell implied larger scale changes to the code as the automatic IntelIJ changes resulted in errors,
 
 ## Testing
 
-### Screenshot of coverage report
+### Screenshot of coverage table
 <p align="center" justify="center">
-  <img src="docs/pitest coverage 2.png"/>
+  <img src="docs/Test Coverage Table.png"/>
 </p>
 <p align="center">
-  <b><i>Fig 2. Test Coverage Table</i></b>
+  <b><i>Fig 3. Test Coverage Table</i></b>
 </p>
 
 ### Screenshot of coverage report
 <p align="center" justify="center">
-  <img src="docs/pitest coverage 1.png"/>
+  <img src="docs/Pit Test Coverage Report.png"/>
 </p>
 <p align="center">
-  <b><i>Fig 3. Pit Test Coverage Report</i></b>
+  <b><i>Fig 4. Pit Test Coverage Report</i></b>
 </p>
 
-### Link to mutation testing report
+### Link to testing report
 [Mutation tests](docs/index.html)
 
 ## Self-evaluation
 
 - Diogo C. Pinto: 33.3%
 - Diogo M. S. Venade: 33.3%
--  33.3%
--  0.00%
+- Tiago 33.3%
 
 
 
