@@ -46,6 +46,40 @@ The use of these patterns in the current design lead to the following benefits, 
 - It is easier to work with separate menus in a clearer and safer ways due to the fact they each belong to a separate class.
 
 
+## Testing
+
+### Screenshot of coverage report
+<p align="center" justify="center">
+  <img src="docs/pitest coverage 2.png"/>
+</p>
+<p align="center">
+  <b><i>Fig 2. Test Coverage Table</i></b>
+</p>
+
+### Screenshot of coverage report
+<p align="center" justify="center">
+  <img src="docs/pitest coverage 1.png"/>
+</p>
+<p align="center">
+  <b><i>Fig 3. Pit Test Coverage Report</i></b>
+</p>
+
+### Link to mutation testing report
+[Mutation tests](docs/index.html)
+
+## Self-evaluation
+
+- Diogo C. Pinto: 33.3%
+- Diogo M. S. Venade: 33.3%
+-  33.3%
+-  0.00%
+
+
+
+
+
+
+
 ## Graphics Mockup
 ![Graphics Mockup](docs/image.png)
 
