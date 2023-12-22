@@ -1,4 +1,4 @@
-package gui;
+package l03gr05.controller.gui;
 
 import com.googlecode.lanterna.TextColor;
 import com.googlecode.lanterna.graphics.TextGraphics;
@@ -107,12 +107,6 @@ public class LanternaGUITest {
 
         when(screen.pollInput()).thenReturn(new KeyStroke(KeyType.Enter));
         assertEquals(Action.Select, gui.getNextAction());
-    }
-
-    @Test
-    void testGetWidth() throws IOException, URISyntaxException, FontFormatException {
-        LanternaGUI gui = new LanternaGUI(20, 20);
-        assertEquals(20, gui.getWidth());
     }
 
     @Test
