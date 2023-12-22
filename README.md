@@ -70,17 +70,32 @@ These classes can be found in the following files:
 ### Game Loop Pattern
 
 #### Problem in Context:
-The game should not wait for player input in order to move the snake. In order to make the snake move on its own we used the **Game Loop** design pattern. This ensured that the game would only need player inputs to change the direction of the snake.
+The game should not wait for player input in order to move the snake. In order to make the snake move on its own we used the **Game Loop Pattern**. This ensured that the game would only need player inputs to change the direction of the snake.
 
 #### Implementation
+The Game Loop pettern doesn't use distinct classes but rather dictates how the Controller classes act. Instead of waiting for user inputs they periodically run the *step()* function, which acts differently depending on the direction value of the Snake element. That value can be changed between steps by the player input.
 
+
+### Arena Builder
+
+#### Problem in Context:
+Our game needed a way to build Arenas of different sizes according to the game settings. To do this we utilized the **Builder Pattern**.
+The Builder pattern is a creational pattern that allows the creation of complex objects step-by-step, which allowed us to simplify the creation process.
+
+#### Implementation:
+
+### Screenshot of coverage report
 <p align="center" justify="center">
-  <img src="docs/State UML Diagram.png"/>
+  <img src="docs/Builder UML.png"/>
 </p>
 <p align="center">
-  <b><i>Fig 2. State UML Diagram</i></b>
+  <b><i>Fig 3. Builder UML</i></b>
 </p>
 
+These classes can be found in the following files:
+- [Arena](src/main/java/l03gr05/model/game/arena/Arena.java)
+- [ClassicArenaBuilder](src/main/java/l03gr05/model/game/arena/ClassicArenaBuilder.java)
+- [ArenaBuilder](src/main/java/l03gr05/model/game/arena/ArenaBuilder.java)
 
 
 
