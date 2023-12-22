@@ -25,32 +25,20 @@ public class MainMenuController extends Controller<MainMenu> {
         int speedIndex = state.getSpeedIndex();
         int sizeIndex = state.getSizeIndex();
         boolean obstacles = state.isObstacles();
-        String size = " ", speed = " ", obstaclesStr = " ";
-        switch (speedIndex) {
-            case 0:
-                speed = "SLOW";
-                break;
-            case 1:
-                speed = "MEDIUM";
-                break;
-            case 2:
-                speed = "FAST";
-                break;
-            case 3:
-                speed = "TEST";
-                break;
-        }
-        switch (sizeIndex) {
-            case 0:
-                size = "SMALL";
-                break;
-            case 1:
-                size = "MEDIUM";
-                break;
-            case 2:
-                size = "LARGE";
-                break;
-        }
+        String size = " ", speed = " ", obstaclesStr;
+        speed = switch (speedIndex) {
+            case 0 -> "SLOW";
+            case 1 -> "MEDIUM";
+            case 2 -> "FAST";
+            case 3 -> "TEST";
+            default -> speed;
+        };
+        size = switch (sizeIndex) {
+            case 0 -> "SMALL";
+            case 1 -> "MEDIUM";
+            case 2 -> "LARGE";
+            default -> size;
+        };
 
         if (obstacles) obstaclesStr = "YES";
         else obstaclesStr = "NO";

@@ -3,7 +3,6 @@ package l03gr05.controller.game;
 import l03gr05.Game;
 import l03gr05.gui.Action;
 import l03gr05.model.game.arena.Arena;
-import l03gr05.model.game.elements.Snake;
 import l03gr05.model.menu.GameOver;
 import l03gr05.states.GameOverState;
 import l03gr05.states.State;

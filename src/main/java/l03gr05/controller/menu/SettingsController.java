@@ -8,8 +8,6 @@ import l03gr05.model.menu.Settings;
 import l03gr05.states.MainMenuState;
 import l03gr05.states.State;
 
-import java.io.IOException;
-
 public class SettingsController extends Controller<Settings> {
     public SettingsController(Settings settings) {
         super(settings);

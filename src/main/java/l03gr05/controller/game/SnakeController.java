@@ -89,16 +89,11 @@ public class SnakeController extends GameController {
     }
 
     public long calculateMovementDuration(int speedIndex) {
-        switch (speedIndex) {
-            case 0:
-                return 200;
-            case 1:
-                return 120;
-            case 2:
-                return 80;
-            default:
-                return 120;
-        }
+        return switch (speedIndex) {
+            case 0 -> 200;
+            case 2 -> 80;
+            default -> 120;
+        };
     }
 
     public boolean isGameOver() {
