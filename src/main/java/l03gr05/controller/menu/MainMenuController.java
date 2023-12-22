@@ -21,7 +21,7 @@ public class MainMenuController extends Controller<MainMenu> {
 
     @Override
     public void step(Game game, Action action, long time) throws IOException, URISyntaxException, FontFormatException {
-        State state = game.getState();
+        State<?> state = game.getState();
         int speedIndex = state.getSpeedIndex();
         int sizeIndex = state.getSizeIndex();
         boolean obstacles = state.isObstacles();
@@ -53,7 +53,7 @@ public class MainMenuController extends Controller<MainMenu> {
                 getModel().nextEntry();
                 break;
             case Select:
-                State gameState;
+                State<?> gameState;
                 if (getModel().isSelectedStart()) {if (sizeIndex == 0) {
                     game.setWindowSize(15, 15);
                     gameState = new GameState(new ClassicArenaBuilder(15, 15).createArena());
@@ -75,14 +75,14 @@ public class MainMenuController extends Controller<MainMenu> {
                 }
 
                 if (getModel().isSelectedSettings()) {
-                    State newState = new SettingsState(new Settings());
+                    SettingsState newState = new SettingsState(new Settings());
                     newState.setSizeIndex(sizeIndex);
                     newState.setSpeedIndex(speedIndex);
                     newState.setObstacles(obstacles);
 
-                    ((SettingsState) newState).getModel().setSize(size);
-                    ((SettingsState) newState).getModel().setSpeed(speed);
-                    ((SettingsState) newState).getModel().setObstacles(obstaclesStr);
+                    newState.getModel().setSize(size);
+                    newState.getModel().setSpeed(speed);
+                    newState.getModel().setObstacles(obstaclesStr);
 
                     game.setState(newState);
                 }

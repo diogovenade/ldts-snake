@@ -12,7 +12,8 @@ public class Arena {
     private Snake snake;
     private Fruit fruit;
     private List<Wall> walls;
-    private int width, height;
+    private final int width;
+    private final int height;
 
     public Arena(int width, int height) {
         this.width = width;

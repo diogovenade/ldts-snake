@@ -17,8 +17,4 @@ public class GameOver extends MenuModel {
         return isSelected(1);
     }
 
-    @Override
-    public int getScore() {
-        return this.score;
-    }
 }

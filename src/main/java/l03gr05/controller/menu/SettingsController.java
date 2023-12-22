@@ -15,7 +15,7 @@ public class SettingsController extends Controller<Settings> {
 
     @Override
     public void step(Game game, Action action, long time) {
-        State state = game.getState();
+        State<?> state = game.getState();
         int speedIndex = state.getSpeedIndex();
         int sizeIndex = state.getSizeIndex();
         boolean obstacles = state.isObstacles();
@@ -29,7 +29,7 @@ public class SettingsController extends Controller<Settings> {
                 break;
             case Select:
                 if (getModel().isSelectedBack()) {
-                    State newState = new MainMenuState(new MainMenu());
+                    State<?> newState = new MainMenuState(new MainMenu());
                     newState.setSpeedIndex(speedIndex);
                     newState.setSizeIndex(sizeIndex);
                     newState.setObstacles(obstacles);

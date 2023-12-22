@@ -64,7 +64,7 @@ public class SnakeController extends GameController {
 
     @Override
     public void step(Game game, Action action, long time) {
-        State state = game.getState();
+        State<?> state = game.getState();
         int speedIndex = state.getSpeedIndex();
         boolean obstacles = state.isObstacles();
         long movementDuration = calculateMovementDuration(speedIndex);

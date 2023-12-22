@@ -50,12 +50,12 @@ public class LanternaGUI {
                 .setInitialTerminalSize(terminalSize);
         terminalFactory.setForceAWTOverSwing(true);
         terminalFactory.setTerminalEmulatorFontConfiguration(fontConfig);
-        Terminal terminal = terminalFactory.createTerminal();
-        return terminal;
+        return terminalFactory.createTerminal();
     }
 
     private AWTTerminalFontConfiguration loadSquareFont() throws URISyntaxException, FontFormatException, IOException {
         URL resource = getClass().getClassLoader().getResource("fonts/square.ttf");
+        assert resource != null;
         File fontFile = new File(resource.toURI());
         Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
 
@@ -63,8 +63,7 @@ public class LanternaGUI {
         ge.registerFont(font);
 
         Font loadedFont = font.deriveFont(Font.PLAIN, 30);
-        AWTTerminalFontConfiguration fontConfig = AWTTerminalFontConfiguration.newInstance(loadedFont);
-        return fontConfig;
+        return AWTTerminalFontConfiguration.newInstance(loadedFont);
     }
 
     public Action getNextAction() throws IOException {

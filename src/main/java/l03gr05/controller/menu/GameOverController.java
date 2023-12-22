@@ -21,7 +21,7 @@ public class GameOverController extends Controller<GameOver> {
 
     @Override
     public void step(Game game, Action action, long time) throws IOException, URISyntaxException, FontFormatException {
-        State state = game.getState();
+        State<?> state = game.getState();
         int speedIndex = state.getSpeedIndex();
         int sizeIndex = state.getSizeIndex();
         boolean obstacles = state.isObstacles();
@@ -33,7 +33,7 @@ public class GameOverController extends Controller<GameOver> {
                 getModel().nextEntry();
                 break;
             case Select:
-                State newState;
+                State<?> newState;
                 if (getModel().isSelectedRestart()) {
                     if (sizeIndex == 0) {
                         game.setWindowSize(15, 15);

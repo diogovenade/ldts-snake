@@ -21,12 +21,12 @@ public class ArenaController extends GameController {
 
     @Override
     public void step(Game game, Action action, long time) throws IOException, URISyntaxException, FontFormatException {
-        State state = game.getState();
+        State<?> state = game.getState();
         int speedIndex = state.getSpeedIndex();
         int sizeIndex = state.getSizeIndex();
         boolean obstacles = state.isObstacles();
         if (action == Action.Quit || snakeController.isGameOver()) {
-            State newState = new GameOverState(new GameOver(getModel().getSnake().getScore()));
+            State<?> newState = new GameOverState(new GameOver(getModel().getSnake().getScore()));
             newState.setSizeIndex(sizeIndex);
             newState.setSpeedIndex(speedIndex);
             newState.setObstacles(obstacles);

@@ -14,12 +14,12 @@ public class Game {
         new Game(new LanternaGUI(20,20)).start();
     }
     private LanternaGUI gui;
-    private State state;
+    private State<?> state;
     public Game(LanternaGUI gui) throws IOException, URISyntaxException, FontFormatException {
         this.gui = gui;
         this.state = new MainMenuState(new MainMenu());
     }
-    public void setState(State state) {
+    public void setState(State<?> state) {
         this.state = state;
     }
     public void start() throws IOException, URISyntaxException, FontFormatException {
@@ -37,14 +37,14 @@ public class Game {
 
             try {
                 if (sleepTime > 0) Thread.sleep(sleepTime);
-            } catch (InterruptedException e) {
+            } catch (InterruptedException ignored) {
             }
         }
 
         gui.close();
     }
 
-    public State getState() {
+    public State<?> getState() {
         return state;
     }
 

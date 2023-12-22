@@ -8,7 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ClassicArenaBuilder extends ArenaBuilder {
-    private int width, height;
+    private final int width;
+    private final int height;
 
     public ClassicArenaBuilder(int width, int height) {
         this.width = width;

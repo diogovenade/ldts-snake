@@ -10,7 +10,7 @@ import static l03gr05.model.Direction.*;
 
 
 public class Snake extends Element {
-    private LinkedList<Position> body = new LinkedList<>();
+    private final LinkedList<Position> body = new LinkedList<>();
     private int score;
     private Direction direction;
     private int length;
