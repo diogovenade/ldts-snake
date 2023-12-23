@@ -98,7 +98,7 @@ The Builder pattern is a creational pattern that allows the creation of complex 
 
 ### Screenshot of coverage report
 <p align="center" justify="center">
-  <img src="docs/Builder UML.png"/>
+  <img src="docs/images/Builder UML.png"/>
 </p>
 <p align="center">
   <b><i>Fig 4. Builder UML</i></b>
@@ -119,7 +119,7 @@ We decided to use the **Template pattern** to be able to do this while still kee
 
 ### Screenshot of coverage report
 <p align="center" justify="center">
-  <img src="docs/Templates UML.png"/>
+  <img src="docs/images/Templates UML.png"/>
 </p>
 <p align="center">
   <b><i>Fig 5. Templates UML</i></b>
