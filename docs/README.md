@@ -161,7 +161,7 @@ The removal of this smell implied larger scale changes to the code as the automa
   <b><i>Fig 7. Pit Test Coverage Report</i></b>
 </p>
 
-### Link to pitest report
+### Link to HTML of pitest report
 - [Mutation tests](Pit%20Test%20Coverage%20Report%20Webpage.html)
 
 ## Self-evaluation
