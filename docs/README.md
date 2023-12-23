@@ -162,7 +162,7 @@ The removal of this smell implied larger scale changes to the code as the automa
 </p>
 
 ### Link to pitest report
-- [Mutation tests](docs/Pit%20Test%20Coverage%20Report%20Webpage.html)
+- [Mutation tests](Pit%20Test%20Coverage%20Report%20Webpage.html)
 
 ## Self-evaluation
 
