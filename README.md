@@ -172,4 +172,4 @@ We fixed most code smells identified by IntelIJ error-prone. The only one remain
 
 - Diogo C. Pinto: 33.3%
 - Diogo M. S. Venade: 33.3%
-- Tiago 33.3%
+- Tiago D. M. Santos 33.3%
