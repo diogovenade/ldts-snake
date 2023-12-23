@@ -1,7 +1,7 @@
 # LDTS - Project 1: Snake
 
 ## Description:
-The game to be implemented in our project is a recreation of the classic game "Snake". The player must control a snake in a grid and eat the fruit on the grid. When the fruit is eaten, another one pops up at a random position. As the player eats the fruits, the snake grows in size, making it more difficult to move it around the grid. The player loses if the head of the snake hits one of the edges of the grid or a part of its own body.
+The game implemented in our project is a recreation of the classic game "Snake". The player must control a snake in a grid and eat the fruit on the grid. When the fruit is eaten, another one pops up at a random position. As the player eats the fruits, the snake grows in size, making it more difficult to move it around the grid. The player loses if the head of the snake hits one of the edges of the grid, a part of its own body or an obstacle.
 
 ## Implemented Features
 
@@ -24,7 +24,7 @@ The game to be implemented in our project is a recreation of the classic game "S
 The following image is the Class UML Diagram of the project.
 
 <p align="center" justify="center">
-  <img src="docs/images/Class UML Diagram.png"/>
+  <img src="images/Class UML Diagram.png"/>
 </p>
 <p align="center">
   <b><i>Fig 1. Class UML Diagram</i></b>
@@ -42,7 +42,7 @@ Regarding the implementation, the MVC pattern lets us maintain classes with diff
 The way these elements interact with each other are explained in the following image:
 
 <p align="center" justify="center">
-  <img src="docs/MVC pattern design interactions.png"/>
+  <img src="images/MVC pattern design interactions.png"/>
 </p>
 <p align="center">
   <b><i>
@@ -65,7 +65,7 @@ The game's behavior changes depending on the current situation. We implemented t
 #### Implementation
 
 <p align="center" justify="center">
-  <img src="docs/State UML Diagram.png"/>
+  <img src="images/State UML Diagram.png"/>
 </p>
 <p align="center">
   <b><i>Fig 3. State UML Diagram</i></b>
@@ -97,7 +97,7 @@ The Builder pattern is a creational pattern that allows the creation of complex 
 #### Implementation:
 
 <p align="center" justify="center">
-  <img src="docs/images/Builder UML.png"/>
+  <img src="images/Builder UML.png"/>
 </p>
 <p align="center">
   <b><i>Fig 4. Builder UML</i></b>
@@ -117,7 +117,7 @@ We decided to use the **Template pattern** to be able to do this while still kee
 #### Implementation:
 
 <p align="center" justify="center">
-  <img src="docs/images/Templates UML.png"/>
+  <img src="images/Templates UML.png"/>
 </p>
 <p align="center">
   <b><i>Fig 5. Templates UML</i></b>
@@ -149,7 +149,7 @@ We fixed most code smells identified by IntelIJ error-prone. The only one remain
 
 ### Screenshot of coverage table
 <p align="center" justify="center">
-  <img src="docs/images/Test Coverage Table.png"/>
+  <img src="images/Test Coverage Table.png"/>
 </p>
 <p align="center">
   <b><i>Fig 6. Test Coverage Table</i></b>
@@ -157,7 +157,7 @@ We fixed most code smells identified by IntelIJ error-prone. The only one remain
 
 ### Screenshot of coverage report
 <p align="center" justify="center">
-  <img src="docs/images/Pit Test Coverage Report.png"/>
+  <img src="images/Pit Test Coverage Report.png"/>
 </p>
 <p align="center">
   <b><i>Fig 7. Pit Test Coverage Report</i></b>
