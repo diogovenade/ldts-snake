@@ -166,6 +166,6 @@ The removal of this smell implied larger scale changes to the code as the automa
 
 ## Self-evaluation
 
-- Diogo C. Pinto: 33.3%
-- Diogo M. S. Venade: 33.3%
-- Tiago D. M. Santos 33.3%
+- Diogo Costa Pinto: 30.0%
+- Diogo Maria Santos Venade: 40.0%
+- Tiago Daniel Martins dos Santos 30.0%

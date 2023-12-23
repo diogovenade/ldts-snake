@@ -42,6 +42,8 @@ The following images and gifs ilustrate what the in-game graphics looks like:
 <br>
 <br />
 
+#### In-game images
+
 <p align="center" justify="center">
   <img src="docs/images/screenshots/Small Game.png"/>
 </p>
