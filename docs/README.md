@@ -88,7 +88,7 @@ The game should not wait for player input in order to move the snake. In order t
 The Game Loop pettern doesn't use distinct classes but rather dictates how the Controller classes act. Instead of waiting for user inputs they periodically run the *step()* function, which acts differently depending on the direction value of the Snake element. That value can be changed between steps by the player input.
 
 
-### Arena Builder Pattern
+### Builder Pattern
 
 #### Problem in Context:
 Our game needed a way to build Arenas of different sizes according to the game settings. To do this we utilized the **Builder Pattern**.
@@ -96,7 +96,6 @@ The Builder pattern is a creational pattern that allows the creation of complex 
 
 #### Implementation:
 
-### Screenshot of coverage report
 <p align="center" justify="center">
   <img src="docs/images/Builder UML.png"/>
 </p>
@@ -117,7 +116,6 @@ We decided to use the **Template pattern** to be able to do this while still kee
 
 #### Implementation:
 
-### Screenshot of coverage report
 <p align="center" justify="center">
   <img src="docs/images/Templates UML.png"/>
 </p>
