@@ -42,7 +42,7 @@ Regarding the implementation, the MVC pattern lets us maintain classes with diff
 The way these elements interact with each other are explained in the following image:
 
 <p align="center" justify="center">
-  <img src="docs/images/MVC pattern design interactions.png"/>
+  <img src="docs/MVC pattern design interactions.png"/>
 </p>
 <p align="center">
   <b><i>
@@ -65,7 +65,7 @@ The game's behavior changes depending on the current situation. We implemented t
 #### Implementation
 
 <p align="center" justify="center">
-  <img src="docs/images/State UML Diagram.png"/>
+  <img src="docs/State UML Diagram.png"/>
 </p>
 <p align="center">
   <b><i>Fig 3. State UML Diagram</i></b>
