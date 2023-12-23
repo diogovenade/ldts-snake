@@ -6,16 +6,16 @@ The game implemented in our project is a recreation of the classic game "Snake".
 ## Implemented Features
 
 - **Main Menu** - The Main Menu is shown when the player boots up the game and lets the player start the game with the default settings or access the Settings Menu.
-- **Settings Menu** - The user can access the Settings Menu from the main menu where they can change the game size, speed and obstacle appearence rules.
-- **Different configurations** - The user can pick from 18 total possible settings configurations according to their tastes. They can pick from 3 different game speeds, 3 different window sizes and a toggle for the appearence of walls that make it more difficult to traverse the game area.
+- **Settings Menu** - The user can access the Settings Menu from the main menu where they can change the game size, speed and obstacle appearance rules.
+- **Different configurations** - The user can pick from 18 total possible settings configurations according to their tastes. They can pick from 3 different game speeds, 3 different window sizes and a toggle for the appearance of walls that make it more difficult to traverse the game area.
 - **Player movement** - Once in-game, the player's snake will automatically move foward at the speed defined in the Settings menu and the player can change direction by pressing the arrow keys.
 - **Collision detection** - Once in-game, if the player's snake runs into an obstacle, one of the edges of the grid or itself the game will end and the player will be brought to the Game Over Menu.
-- **Game Over menu** - The Game Over Menu is shown whenever the player fullfills the conditions necessary to lose the game. The player has the option to try again using the same settings.
+- **Game Over menu** - The Game Over Menu is shown whenever the player fulfills the conditions necessary to lose the game. The player has the option to try again using the same settings.
 
 ## Planned Features
 
 - The only planned feature that wasn't implemented was the High Score system.
-- The appearence of walls as obstacles was implemented despite not being in the planned features.
+- The appearance of walls as obstacles was implemented despite not being in the planned features.
 
 ## Design
 
@@ -33,7 +33,7 @@ The following image is the Class UML Diagram of the project.
 
 ### General Structure
 
-#### The Patters:
+#### The Patterns:
 In this project we utilized the Model-View-Controller **Architectural Pattern**, which allowed us to handle the data structure, the visuals and the internal logic separately. This made it easier to follow the Single Responsibility Principle.
 We also used the **State Pattern**, which lets the behavior of an object easily change depending on what its internal state is.
 
@@ -54,8 +54,8 @@ Attributions and copyright licensing by [Mozilla Contributors](https://developer
 
 #### Consequences:
 The use of these patterns in the current design lead to the following benefits, besides the ones already mentioned:
-- The adherence to SOLID principles make development of new features easier and less prone to needing major structural changes.
-- It is easier to work with separate menus in a clearer and safer ways due to the fact they each belong to a separate class.
+- The adherence to SOLID principles makes development of new features easier and less prone to needing major structural changes.
+- It is easier to work with separate menus in a clearer and safer way due to the fact they each belong to a separate class.
 
 ### State Structure
 
@@ -85,7 +85,7 @@ These classes can be found in the following files:
 The game should not wait for player input in order to move the snake. In order to make the snake move on its own we used the **Game Loop Pattern**. This ensured that the game would only need player inputs to change the direction of the snake.
 
 #### Implementation
-The Game Loop pettern doesn't use distinct classes but rather dictates how the Controller classes act. Instead of waiting for user inputs they periodically run the *step()* function, which acts differently depending on the direction value of the Snake element. That value can be changed between steps by the player input.
+The Game Loop pattern doesn't use distinct classes but rather dictates how the Controller classes act. Instead of waiting for user inputs they periodically run the *step()* function, which acts differently depending on the direction value of the Snake element. That value can be changed between steps by the player input.
 
 
 ### Builder Pattern
@@ -123,7 +123,7 @@ We decided to use the **Template pattern** to be able to do this while still kee
   <b><i>Fig 5. Templates UML</i></b>
 </p>
 
-Sinse the Template Pattern was used multiple times we decided to highlight and number all of them in the class UML.
+Since the Template Pattern was used multiple times we decided to highlight and number all of them in the class UML.
 The files of the template classes are the following:
 
 These classes can be found in the following files:
@@ -139,11 +139,9 @@ These classes can be found in the following files:
 
 ## Known-code smells
 
-We fixed most code smells identified by IntelIJ error-prone. The only one remaining was the following:
+We fixed most code smells identified by IntelIJ error-prone. The only one remaining was the existence of duplicate code on 'SettingsController' and 'MainMenuController'.
 
- "duplicate code on 'SettingsController' and 'MainMenuController'."
-
- The removal of this smell implied larger scale changes to the code as the automatic IntelIJ changes resulted in errors,
+The removal of this smell implied larger scale changes to the code as the automatic IntelIJ changes resulted in errors,
 
 ## Testing
 
