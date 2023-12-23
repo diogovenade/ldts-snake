@@ -145,7 +145,7 @@ The removal of this smell implied larger scale changes to the code as the automa
 
 ## Testing
 
-### Screenshot of coverage table
+### Screenshot of Coverage Table
 <p align="center" justify="center">
   <img src="images/Test Coverage Table.png"/>
 </p>
