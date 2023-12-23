@@ -97,29 +97,33 @@ These classes can be found in the following files:
 - [ClassicArenaBuilder](src/main/java/l03gr05/model/game/arena/ClassicArenaBuilder.java)
 - [ArenaBuilder](src/main/java/l03gr05/model/game/arena/ArenaBuilder.java)
 
-### Element Template Pattern
+### Template Pattern
 
 #### Problem in Context:
-Many elements in the game shared the same characteristics, namely the having a position on the arena. We found it useful to use the **Template pattern**.
-The Template pattern is a behavioral pattern that defines a superclass with default implementations of some of the methods the classes will use. These implementations can then be overwritten by the subclasses if needed.
+In many instances we benefited from having separate classes for separate game elements, menus, states, etc.
+We decided to use the **Template pattern** to be able to do this while still keeping superclasses containing the common characteristics of these classes, as well as having default implementations for some of their methods which could be overwritten by the subclasses if needed.
 
 #### Implementation:
 
 ### Screenshot of coverage report
 <p align="center" justify="center">
-  <img src="docs/Template UML.png"/>
+  <img src="docs/Templates UML.png"/>
 </p>
 <p align="center">
-  <b><i>Fig 4. Template UML</i></b>
+  <b><i>Fig 4. Templates UML</i></b>
 </p>
 
+Sinse the Template Pattern was used multiple times we decided to highlight and number all of them in the class UML.
+The files of the template classes are the following:
+
 These classes can be found in the following files:
-- [Element](src/main/java/l03gr05/model/game/elements/Element.java)
-- [Fruit](src/main/java/l03gr05/model/game/elements/Fruit.java)
-- [Wall](src/main/java/l03gr05/model/game/elements/Wall.java)
-- [Snake](src/main/java/l03gr05/model/game/elements/Snake.java)
-- [Position](src/main/java/l03gr05/model/Position.java)
-- [Direction](src/main/java/l03gr05/model/Direction.java)
+- [Element(1)](src/main/java/l03gr05/model/game/elements/Element.java)
+- [Viewer(2)](src/main/java/l03gr05/viewer/Viewer.java)
+- [ElementViewer(3)](src/main/java/l03gr05/viewer/game/ElementViewer.java)
+- [Controller(4)](src/main/java/l03gr05/controller/Controller.java)
+- [State(5)](src/main/java/l03gr05/states/State.java)
+- [MenuModel(6)](src/main/java/l03gr05/model/menu/MenuModel.java)
+- [ArenaBuilder(7)](src/main/java/l03gr05/model/game/arena/ArenaBuilder.java)
 
 
 
