@@ -19,6 +19,18 @@ The game to be implemented in our project is a recreation of the classic game "S
 
 ## Design
 
+### Class UML Diagram
+
+The following image is the Class UML Diagram of the project.
+
+<p align="center" justify="center">
+  <img src="docs/images/Class UML Diagram.png"/>
+</p>
+<p align="center">
+  <b><i>Fig 1. Class UML Diagram</i></b>
+</p>
+
+
 ### General Structure
 
 #### The Patters:
@@ -34,7 +46,7 @@ The way these elements interact with each other are explained in the following i
 </p>
 <p align="center">
   <b><i>
-  Fig 1. MVC pattern design interactions.<br>
+  Fig 2. MVC pattern design interactions.<br>
   </i></b>
 </p>
 
@@ -56,7 +68,7 @@ The game's behavior changes depending on the current situation. We implemented t
   <img src="docs/State UML Diagram.png"/>
 </p>
 <p align="center">
-  <b><i>Fig 2. State UML Diagram</i></b>
+  <b><i>Fig 3. State UML Diagram</i></b>
 </p>
 
 These classes can be found in the following files:
@@ -89,7 +101,7 @@ The Builder pattern is a creational pattern that allows the creation of complex 
   <img src="docs/Builder UML.png"/>
 </p>
 <p align="center">
-  <b><i>Fig 3. Builder UML</i></b>
+  <b><i>Fig 4. Builder UML</i></b>
 </p>
 
 These classes can be found in the following files:
@@ -110,7 +122,7 @@ We decided to use the **Template pattern** to be able to do this while still kee
   <img src="docs/Templates UML.png"/>
 </p>
 <p align="center">
-  <b><i>Fig 4. Templates UML</i></b>
+  <b><i>Fig 5. Templates UML</i></b>
 </p>
 
 Sinse the Template Pattern was used multiple times we decided to highlight and number all of them in the class UML.
@@ -139,18 +151,18 @@ We fixed most code smells identified by IntelIJ error-prone. The only one remain
 
 ### Screenshot of coverage table
 <p align="center" justify="center">
-  <img src="docs/Test Coverage Table.png"/>
+  <img src="docs/images/Test Coverage Table.png"/>
 </p>
 <p align="center">
-  <b><i>Fig 4. Test Coverage Table</i></b>
+  <b><i>Fig 6. Test Coverage Table</i></b>
 </p>
 
 ### Screenshot of coverage report
 <p align="center" justify="center">
-  <img src="docs/Pit Test Coverage Report.png"/>
+  <img src="docs/images/Pit Test Coverage Report.png"/>
 </p>
 <p align="center">
-  <b><i>Fig 5. Pit Test Coverage Report</i></b>
+  <b><i>Fig 7. Pit Test Coverage Report</i></b>
 </p>
 
 ### Link to testing report
@@ -161,22 +173,3 @@ We fixed most code smells identified by IntelIJ error-prone. The only one remain
 - Diogo C. Pinto: 33.3%
 - Diogo M. S. Venade: 33.3%
 - Tiago 33.3%
-
-
-
-
-
-
-
-## Graphics Mockup
-![Graphics Mockup](docs/image.png)
-
-## UML Diagram
-![LDTS Project - UML drawio (1)](https://github.com/FEUP-LDTS-2023/project-l03gr05/assets/132618557/ebefb5a4-0f99-4b78-9127-dd9a98c1f4ed)
-
-## Patterns
-- Model-View-Controller (MVC) architectural pattern, which essentially divides our project into three parts: the model, which represents the data of the project; the view, which displays the data to the user; and the controller, which handles user input
-
-- State Pattern, given that our game can either be in the menu or in the actual gameplay (it has 2 states), which means that it can have different behaviours which have to be switched during runtime (going from the menu to the game and vice-versa)
-
-- l03gr05.Game Loop Pattern, considering that a game loop runs continously during runtime, constantly updating the game state, handling user input and rendering the game's output
