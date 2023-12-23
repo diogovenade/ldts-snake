@@ -103,3 +103,45 @@ The following images and gifs ilustrate what the in-game graphics looks like:
 
 <br>
 <br />
+
+### Gifs:
+
+<p align="center" justify="center">
+  <img src="docs/gifs/settings showcase gif.gif"/>
+</p>
+<p align="center">
+  <b><i>Gif 1. Settings Menu showcase </i></b>
+</p>
+
+<br>
+<br />
+
+<p align="center" justify="center">
+  <img src="docs/gifs/slow gif.gif"/>
+</p>
+<p align="center">
+  <b><i>Gif 2. Slow Game </i></b>
+</p>
+
+<br>
+<br />
+
+<p align="center" justify="center">
+  <img src="docs/gifs/default game gif.gif"/>
+</p>
+<p align="center">
+  <b><i>Gif 3. Default Game </i></b>
+</p>
+
+<br>
+<br />
+
+<p align="center" justify="center">
+  <img src="docs/gifs/fast gif.gif"/>
+</p>
+<p align="center">
+  <b><i>Gif 4. Fast Game </i></b>
+</p>
+
+<br>
+<br />
