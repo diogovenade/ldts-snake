@@ -76,7 +76,7 @@ The game should not wait for player input in order to move the snake. In order t
 The Game Loop pettern doesn't use distinct classes but rather dictates how the Controller classes act. Instead of waiting for user inputs they periodically run the *step()* function, which acts differently depending on the direction value of the Snake element. That value can be changed between steps by the player input.
 
 
-### Arena Builder
+### Arena Builder Pattern
 
 #### Problem in Context:
 Our game needed a way to build Arenas of different sizes according to the game settings. To do this we utilized the **Builder Pattern**.
@@ -97,6 +97,30 @@ These classes can be found in the following files:
 - [ClassicArenaBuilder](src/main/java/l03gr05/model/game/arena/ClassicArenaBuilder.java)
 - [ArenaBuilder](src/main/java/l03gr05/model/game/arena/ArenaBuilder.java)
 
+### Element Template Pattern
+
+#### Problem in Context:
+Many elements in the game shared the same characteristics, namely the having a position on the arena. We found it useful to use the **Template pattern**.
+The Template pattern is a behavioral pattern that defines a superclass with default implementations of some of the methods the classes will use. These implementations can then be overwritten by the subclasses if needed.
+
+#### Implementation:
+
+### Screenshot of coverage report
+<p align="center" justify="center">
+  <img src="docs/Template UML.png"/>
+</p>
+<p align="center">
+  <b><i>Fig 4. Template UML</i></b>
+</p>
+
+These classes can be found in the following files:
+- [Element](src/main/java/l03gr05/model/game/elements/Element.java)
+- [Fruit](src/main/java/l03gr05/model/game/elements/Fruit.java)
+- [Wall](src/main/java/l03gr05/model/game/elements/Wall.java)
+- [Snake](src/main/java/l03gr05/model/game/elements/Snake.java)
+- [Position](src/main/java/l03gr05/model/Position.java)
+- [Direction](src/main/java/l03gr05/model/Direction.java)
+
 
 
 ## Known-code smells
@@ -114,7 +138,7 @@ We fixed most code smells identified by IntelIJ error-prone. The only one remain
   <img src="docs/Test Coverage Table.png"/>
 </p>
 <p align="center">
-  <b><i>Fig 3. Test Coverage Table</i></b>
+  <b><i>Fig 4. Test Coverage Table</i></b>
 </p>
 
 ### Screenshot of coverage report
@@ -122,7 +146,7 @@ We fixed most code smells identified by IntelIJ error-prone. The only one remain
   <img src="docs/Pit Test Coverage Report.png"/>
 </p>
 <p align="center">
-  <b><i>Fig 4. Pit Test Coverage Report</i></b>
+  <b><i>Fig 5. Pit Test Coverage Report</i></b>
 </p>
 
 ### Link to testing report
