@@ -153,7 +153,7 @@ The removal of this smell implied larger scale changes to the code as the automa
   <b><i>Fig 6. Test Coverage Table</i></b>
 </p>
 
-### Screenshot of coverage report
+### Screenshot of Pit Test Coverage Report
 <p align="center" justify="center">
   <img src="images/Pit Test Coverage Report.png"/>
 </p>
