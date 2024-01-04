@@ -144,4 +144,8 @@ The following images and gifs ilustrate what the in-game graphics looks like:
 </p>
 
 <br>
+
+## Sources
+
+While developing this project, we took inspiration from Hero (revisited using SOLID and Design Patterns), "ldts-project-assignment-G0902", which was made available on Moodle in "Demos" and was shown in class, and the Example Report given by the professors as well.
 <br />
